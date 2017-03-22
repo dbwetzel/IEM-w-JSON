@@ -90,15 +90,22 @@
 						"6" : "0.8",
 						"7" : "0.8",
 						"8" : "0.8"
-					}						
-					
-				
+					}										
 				},
 				"comments" : "set inputs, outputs, and levels"	
 			}, 
 			{
 				"name" : "ISPW-pt",
-				"parameters" : {}
+				"parameters" : {
+					"in~" : "ADC[1]",
+					"out-cc" : {
+						"continuous" : "pt-continuous",
+						"MIDI+" : "pt-MIDI+",
+						"note" : "pt-note",
+						"velocity" : "pt-vel",
+						"envelope" : "pt-env"
+					} 
+				}
 			}, 
 			{
 				"name" : "ISPW-sampler",
@@ -146,7 +153,33 @@
 		],
 		"comments" : "this section is for named events that are not part of a sequence"
 	},
-	"sequences" : {}
+	"sequences" : {
+		"section 1" : [
+			{
+				"comments" : "Event 1 - m. 1",
+				"modules" : [
+					{
+						"name" : "ISPW-sampler",
+						"parameters" : {}
+					},
+					{
+						"name" : "ISPW-mix",
+						"parameters" : {}
+					},
+				]
+			},
+			{
+				"comments" : "event 2",
+				"modules" : [
+					{
+					},
+					{
+					}
+				]
+			}
+		],
+		
+	}
 
 
 }
