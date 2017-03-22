@@ -169,11 +169,14 @@
 			}
 		},
 		{
-			"comments" : "set next pedal",
+			"comments" : "set next-event pedal and set sequence",
 			"name" : "main",
-			"parameters": {
+			"parameters": 
+			{
+				"set-event" : 0,
+				"sequence" : "performance",
+				"in-cc" : {"event" : "step"}
 			}
-			
 		}
 		]
 	},
@@ -184,57 +187,126 @@
 			"comments": "Event 1 - m. 1",
 			"modules": [
 			{
-				"comments" : "initialize the system"
+				"comments" : "re-initialize the system",
 				"name": "main",
 				"parameters": {
 					"event" : "init"
 				}
-			}, 
-			{
-				"name": "ISPW-mix",
-				"parameters": {}
 			}
 			]
 		}, 
 		{
-			"comments": "event 2",
-			"modules": [{
-				"name": "ISPW-sampler",
-				"parameters": {}
-			}, {
-				"name": "ISPW-mix",
-				"parameters": {}
-			}]
+			"comments": "EVENT 2 - m. 63 \"Sees pool of water\" DEL=512x0.5 FB=0 BYPASS=OFF",
+			"modules": [
+			{
+				"name": "main",
+				"parameters": {
+					"console" : "m. 63 - \"Sees a pool of water\" - DEL=512x0.5 FB=0 BYPASS=OFF"
+				}
+			}, 
+			{
+				"name": "VK411",
+				"parameters": {
+					"bypass" : 0,
+					"range" : 512,
+					"time" : 0.5,
+					"feedback" : 0,
+					"depth" : 0
+					}
+			}, 
+			{
+				"name": "Nvol",
+				"parameters": {
+					"line" : [127, 100],
+					"trigger" : 127
+				}
+			}
+			]
 		}, 
 		{
-			"comments": "event 3",
-			"modules": [{
-				"name": "ISPW-sampler",
-				"parameters": {}
-			}, {
-				"name": "ISPW-mix",
-				"parameters": {}
-			}]
+			"comments": "EVENT 3 - m. 76 - \"Jumps back in fright\" DEL=512x0.5 FB=0 BYPASS=ON",
+			"modules": [
+			{
+				"name": "main",
+				"parameters": {
+					"console" : "m. 76 - \"Jumps back in fright\" - bypass ON"
+				}
+			}, 
+			{
+				"name": "VK411",
+				"parameters": {
+					"bypass" : 1, 
+					"range" : 512, 
+					"time" : 0.5, 
+					"feedback" : 0,
+					"depth" : 0
+				}
+			},
+			{
+				"name": "Nvol",
+				"parameters": {
+					"line" : [127 100] 
+				}
+			}			
+			]
 		}, 
 		{
-			"comments": "event 4",
-			"modules": [{
-				"name": "ISPW-sampler",
-				"parameters": {}
-			}, {
-				"name": "ISPW-mix",
-				"parameters": {}
-			}]
+			"comments": "EVENT 4 m. 77 FB=2 DEL=512x0.5 BYPASS=OFF",
+			"modules": 
+			[
+				{
+					"name": "main",
+					"parameters": {
+						"console" : "m. 77 - Meno mosso \"Is IT still there?\" - FB=2 DEL=512x0.5 BYPASS=OFF"
+					}
+				}, 
+				{
+					"name": "VK411",
+					"parameters": {
+						"feedback" : 2, 
+						"bypass" : 0, 
+						"range" : 512, 
+						"time" : 0.5, 
+						"depth" : 0
+					}
+				}, 
+				{
+					"name": "Nvol",
+					"parameters": {
+						"line" : [127 100], 
+						"setline" : [127 0 10000], 
+					}
+				}
+			]
 		}, 
 		{
-			"comments": "event 5",
-			"modules": [{
-				"name": "ISPW-sampler",
-				"parameters": {}
-			}, {
-				"name": "ISPW-mix",
-				"parameters": {}
-			}]
+			"comments": "EVENT 5 m. 88 VOL=0 FB=4 DEL=512x1",
+			"modules": 
+			[
+				{
+					"name": "main",
+					"parameters": {
+						"console" : "m. 88 - Poco agitato \"Narcissus steps back ...\" - VOL=0 FB=4 DEL=512x1 BYPASS=OFF"
+					}
+				}, 
+				{
+					"name": "VK411",
+					"parameters": {
+						"feedback" : 4, 
+						"range" : 512,
+						"time" : 1.0, 
+						"bypass" : 0, 
+						"depth" : 0
+					}
+				},
+				{
+					"name": "volramp",
+					"parameters": {
+						"line" : [0 100],
+						"setline" : [0, 127, 3000, 0, 5000, 127, 3000, 0, 5000, 127, 3000, 0, 15000, 127, 2000, 0, 4000, 127, 2000, 0, 4000, 127, 4000]
+					}
+				}
+			]
 		}
 		]
 	}
