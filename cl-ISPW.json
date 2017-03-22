@@ -1,0 +1,51 @@
+{
+	"doctype" : "IEM Event List",
+	"author" : "David B Wetzel",
+	"date" : "2017",
+	"meta" : {
+		"composer" : "Cort Lippe",
+		"title" : "Music for Clarinet and ISPW",
+		"year" : "1992",
+		"dedication" : "Esther Lamneck",
+		"note" : "Kunitachi University etc."
+	},
+	"setup" : {
+		"modules" : [
+			{
+				"file" : "mixer.iem.maxpat",
+				"name" : "ISPW-mix",
+				"comments" : "Handles both audio routing and spatialization tasks"
+			}, 
+			{
+				"file" : "pitchtracker.iem.maxpat",
+				"name" : "ISPW-pt"
+				"comments" : "real-time pitch tracking of live instrument"
+			}, 
+			{
+				"file" : "gransampler.iem.maxpat",
+				"name" : "ISPW-sampler",
+				"comments" : "polyphonic granular sampler with algorithmic processes"
+			}, 
+			{
+				"file" : "buffers.iem.maxpat",
+				"name" : "ISPW-buff",
+				"comments" : "load audio files for use with sampler"
+			}, 
+			{
+				"file" : "harmonizer.iem.maxpat",
+				"name" : "ISPW-harm",
+				"comments" : "delay-based audio signal pitch-shifter"
+			}, 
+			{
+				"file" : "freqshifter.iem.maxpat",
+				"name" : "ISPW-freq",
+				"comments" : "shift all harmonic components linearly by x Hz (ring mod type effect)"
+			}
+		]
+	},
+	"init" : {},
+	"presets" : {},
+	"sequences" : {}
+
+
+}
