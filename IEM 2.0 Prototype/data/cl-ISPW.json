@@ -172,8 +172,51 @@
 				"comments" : "event 2",
 				"modules" : [
 					{
+						"name" : "ISPW-sampler",
+						"parameters" : {}
 					},
 					{
+						"name" : "ISPW-mix",
+						"parameters" : {}
+					}
+				]
+			},
+			{
+				"comments" : "event 3",
+				"modules" : [
+					{
+						"name" : "ISPW-sampler",
+						"parameters" : {}
+					},
+					{
+						"name" : "ISPW-mix",
+						"parameters" : {}
+					}
+				]
+			},
+			{
+				"comments" : "event 4",
+				"modules" : [
+					{
+						"name" : "ISPW-sampler",
+						"parameters" : {}
+					},
+					{
+						"name" : "ISPW-mix",
+						"parameters" : {}
+					}
+				]
+			},
+			{
+				"comments" : "event 5",
+				"modules" : [
+					{
+						"name" : "ISPW-sampler",
+						"parameters" : {}
+					},
+					{
+						"name" : "ISPW-mix",
+						"parameters" : {}
 					}
 				]
 			}
