@@ -18,7 +18,7 @@
 			}, 
 			{
 				"file" : "pitchtracker.iem.maxpat",
-				"name" : "ISPW-pt"
+				"name" : "ISPW-pt",
 				"comments" : "real-time pitch tracking of live instrument"
 			}, 
 			{
