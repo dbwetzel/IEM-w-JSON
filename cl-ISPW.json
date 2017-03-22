@@ -37,14 +37,115 @@
 				"comments" : "delay-based audio signal pitch-shifter"
 			}, 
 			{
-				"file" : "freqshifter.iem.maxpat",
+				"file" : "freqshift.iem.maxpat",
 				"name" : "ISPW-freq",
 				"comments" : "shift all harmonic components linearly by x Hz (ring mod type effect)"
-			}
+			},
+			{
+				"file" : "delay.iem.maxpat",
+				"name" : "ISPW-flange",
+				"comments" : "flange effect"
+			},
+			{
+				"file" : "AMFM.iem.maxpat",
+				"name" : "ISPW-amfm",
+				"comments" : "pt envelop, continuous pitch, and live signal for AM/FM synthesis"
+			},
+			{
+				"file" : "noiseDSP.iem.maxpat",
+				"name" : "ISPW-noise",
+				"comments" : "banks of random amplitude modulators"
+			}			
+		],
+		"init" : [ 
+			{
+				"name" : "ISPW=mix",
+				"parameters" : {
+					"in~" : {
+						"1" : "ADC[0]",
+						"2" : "samplerL~",
+						"3" : "samplerR~",
+						"4" : "harmonizer~",
+						"5" : "freqshifter~",
+						"6" : "flange~",
+						"7" : "AMFM~",
+						"8" : "noiseDSP~"
+					},
+					"trim" : {
+						"1" : "0.8",
+						"2" : "1.",
+						"3" : "1.",
+						"4" : "1.",
+						"5" : "1.",
+						"6" : "1.",
+						"7" : "1.",
+						"8" : "1."
+					},						
+					"fader" : {
+						"1" : "0.8",
+						"2" : "0.8",
+						"3" : "0.8",
+						"4" : "0.8",
+						"5" : "0.8",
+						"6" : "0.8",
+						"7" : "0.8",
+						"8" : "0.8"
+					}						
+					
+				
+				},
+				"comments" : "set inputs, outputs, and levels"	
+			}, 
+			{
+				"name" : "ISPW-pt",
+				"parameters" : {}
+			}, 
+			{
+				"name" : "ISPW-sampler",
+				"parameters" : {}
+			}, 
+			{
+				"name" : "ISPW-buff",
+				"parameters" : {}
+			}, 
+			{
+				"name" : "ISPW-harm",
+				"parameters" : {}
+			}, 
+			{
+				"name" : "ISPW-freq",
+				"parameters" : {}
+			},
+			{
+				"name" : "ISPW-flange",
+				"parameters" : {}
+			}, 
+			{
+				"name" : "ISPW-amfm",
+				"parameters" : {}
+			}, 
+			{
+				"name" : "ISPW-noise",
+				"parameters" : {}
+			}		
 		]
 	},
-	"init" : {},
-	"presets" : {},
+	"presets" : {
+		"demo" : [
+			{
+				"name" : "ISPW-sampler",
+				"parameters" : {}
+			},
+			{},
+			{}
+		],
+		"soundcheck" : [
+			{},
+			{},
+			{}
+		],
+		"comments" : "this section is for named events that are not part of a sequence"
+	},
 	"sequences" : {}
 
 
