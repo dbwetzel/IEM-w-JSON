@@ -178,6 +178,16 @@
 				]
 			}
 		],
+		"section 2" : [
+			{
+				"comments" : "event 1",
+				"modules" : [
+					{},
+					{}
+				]
+			},
+			{}
+		]
 		
 	}
 
