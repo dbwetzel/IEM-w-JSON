@@ -306,6 +306,35 @@
 					}
 				}
 			]
+		},
+		{
+			"comments": "EVENT 6 m. 171 Liricamente con rubato VOL=UP FB=6 DEL=512x1 BYPASS=OFF",
+			"modules": 
+			[
+				{
+					"name": "main",
+					"parameters": {
+						"console" : "m. 171 Liricamente con rubato \"In the shimmering sunlight ...\" - VOL UP FB=6 DEL=512x1 BYPASS=OFF"
+					}
+				}, 
+				{
+					"name": "VK411",
+					"parameters": {
+						"feedback" : 6, 
+						"range" : 512,
+						"time" : 1.0, 
+						"bypass" : 0, 
+						"depth" : 0
+					}
+				},
+				{
+					"name": "volramp",
+					"parameters": {
+						"line" : [0, 100],
+						"setline" : [127, 0, 12000, 127, 3000, 0, 4000, 127, 3000, 0, 4000, 127, 6000]
+					}
+				}
+			]
 		}
 		]
 	}
