@@ -330,8 +330,225 @@
 				{
 					"name": "volramp",
 					"parameters": {
-						"line" : [0, 100],
+						"line" : [127, 100],
 						"setline" : [127, 0, 12000, 127, 3000, 0, 4000, 127, 3000, 0, 4000, 127, 6000]
+					}
+				}
+			]
+		},
+		{
+			"comments": "EVENT 7 m. 246 Giocosso. Doppio movimento VOL=UP FB=4 DEL=512x0.5 BYPASS=OFF",
+			"modules": 
+			[
+				{
+					"name": "main",
+					"parameters": {
+						"console" : "m. 246 Giocosso. Doppio movimento \"Narcissus then responds playfully - happily\" - VOL UP FB=4 DEL=512x0.5 BYPASS=OFF"
+					}
+				}, 
+				{
+					"name": "VK411",
+					"parameters": {
+						"feedback" : 4, 
+						"range" : 512,
+						"time" : 0.5, 
+						"bypass" : 0, 
+						"depth" : 0
+					}
+				},
+				{
+					"name": "volramp",
+					"parameters": {
+						"line" : [127, 100]
+					}
+				}
+			]
+		},
+		{
+			"comments": "EVENT 8 m. 315 Andante VOL=UP FB=6 DEL=512x0.5 BYPASS=OFF",
+			"modules": 
+			[
+				{
+					"name": "main",
+					"parameters": {
+						"console" : "console m. 315 Andante \"Narcissus anxiously questions ...\" - VOL=UP FB=6 DEL=512x0.5 BYPASS=OFF"
+					}
+				}, 
+				{
+					"name": "VK411",
+					"parameters": {
+						"feedback" : 6, 
+						"range" : 512,
+						"time" : 0.5, 
+						"bypass" : 0, 
+						"depth" : 0
+					}
+				},
+				{
+					"name": "volramp",
+					"parameters": {
+						"line" : [127, 100]
+					}
+				}
+			]
+		},
+		{
+			"comments": "EVENT 9 m. 369 VOL=UP FB=6 DEL=512x0.5 MOD=1 BYPASS=OFF",
+			"modules": 
+			[
+				{
+					"name": "main",
+					"parameters": {
+						"console" : "cm. 369 \"The waves surge up ... Narcissus drowns\" - VOL=UP FB=6 DEL=512x0.5 MOD=1 BYPASS=OFF"
+					}
+				}, 
+				{
+					"name": "VK411",
+					"parameters": {
+						"feedback" : 6, 
+						"range" : 512,
+						"time" : 0.5, 
+						"bypass" : 0, 
+						"depth" : 1.5
+					}
+				},
+				{
+					"name": "volramp",
+					"parameters": {
+						"line" : [127, 100]
+					}
+				}
+			]
+		},
+		{
+			"comments": "EVENT 10 m. 383 VOL=UP FB=6 DEL=512x0.5 MOD=2 BYPASS=OFF",
+			"modules": 
+			[
+				{
+					"name": "main",
+					"parameters": {
+						"console" : "m. 383 \"All that remainsis a distant shimmering vision ...\" - VOL=UP FB=6 DEL=512x0.5 MOD=2 BYPASS=OFF"
+					}
+				}, 
+				{
+					"name": "VK411",
+					"parameters": {
+						"feedback" : 6, 
+						"range" : 512,
+						"time" : 0.5, 
+						"bypass" : 0, 
+						"depth" : 2.5
+					}
+				},
+				{
+					"name": "volramp",
+					"parameters": {
+						"line" : [127, 100]
+					}
+				}
+			]
+		},
+		{
+			"comments": "EVENT 11 m. 396 VOL=UP FB=6 DEL=512x2 MOD=2 BYPASS=OFF",
+			"modules": 
+			[
+				{
+					"name": "main",
+					"parameters": {
+						"console" : "m. 396 - VOL=UP FB=6 DEL=512x2 MOD=2 BYPASS=OFF"
+					}
+				}, 
+				{
+					"name": "VK411",
+					"parameters": {
+						"feedback" : 6, 
+						"range" : 512,
+						"time" : 2, 
+						"bypass" : 0, 
+						"depth" : 2.5
+					}
+				},
+				{
+					"name": "volramp",
+					"parameters": {
+						"line" : [127, 100],
+						"setline" : [127, 80, 6000, 100, 3000]
+					}
+				}
+			]
+		},
+		{
+			"comments": "EVENT 12 m. 422",
+			"modules": 
+			[
+				{
+					"name": "main",
+					"parameters": {
+						"console" : "m. 422 - VOL UP FB=6 DEL=512x2 MOD=1 BYPASS=OFF"
+					}
+				}, 
+				{
+					"name": "VK411",
+					"parameters": {
+						"feedback" : 6, 
+						"range" : 512,
+						"time" : 2, 
+						"bypass" : 0, 
+						"depth" : 1
+					}
+				},
+				{
+					"name": "volramp",
+					"parameters": {
+						"line" : [100, 100]
+					}
+				}
+			]
+		},
+		{
+			"comments": "EVENT 13 m. 424 VOL=UP FB=6 DEL=512x2 MOD=0 BYPASS=OFF",
+			"modules": 
+			[
+				{
+					"name": "main",
+					"parameters": {
+						"console" : "m. 424 - \"The vision disappears ...\" VOL=UP FB=6 DEL=512x2 MOD=0 BYPASS=OFF"
+					}
+				}, 
+				{
+					"name": "VK411",
+					"parameters": {
+						"feedback" : 6, 
+						"range" : 512,
+						"time" : 2, 
+						"bypass" : 0, 
+						"depth" : 0
+					}
+				},
+				{
+					"name": "volramp",
+					"parameters": {
+						"line" : [100, 100],
+						"setline" : [100, 0, 8000]
+					}
+				}
+			]
+		},
+		{
+			"comments": "EVENT 14 - FIN - back to ev. 1",
+			"modules": 
+			[
+				{
+					"name": "main",
+					"parameters": {
+						"console" : "FIN - \"next event restarts from beginning\"",
+						"set-event" : 0
+					}
+				}, 
+				{
+					"name": "VK411",
+					"parameters": {
+						"volume" : 0 
 					}
 				}
 			]
