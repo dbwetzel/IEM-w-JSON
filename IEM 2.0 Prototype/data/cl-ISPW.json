@@ -1,7 +1,10 @@
 {
-	"doctype": "IEM Event List",
-	"author": "David B Wetzel",
-	"date": "2017",
+	"info": {
+		"doctype": "IEM Event List",
+		"author": "David B Wetzel",
+		"date": "2017",
+		"IEM-version" : 2.0
+	},
 	"meta": {
 		"composer": "Cort Lippe",
 		"title": "Music for Clarinet and ISPW",
@@ -130,7 +133,12 @@
 			"comments": "Event 1 - m. 1",
 			"modules": [{
 				"name": "ISPW-sampler",
-				"parameters": {}
+				"parameters": {},
+				"functions" : [
+					{"function" : "line", "args" : [0, 127, 1000]},
+					{"function" : "trevor", "args" : [ ]}
+				]				
+				
 			}, {
 				"name": "ISPW-mix",
 				"parameters": {}

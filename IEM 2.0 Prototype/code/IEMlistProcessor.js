@@ -31,16 +31,23 @@ function import(filename)
 	// use the stringify() method to get the dictionary (including nested dictionaries) in JSON format
 	var xjson = x.stringify();
 	
-	// create a new Dict referencing "foobar" and parse the xjson string to it
-	var e = new Dict("foo");
+	// create a new Dict referencing "eventlist" and parse the xjson string to it
+	var e = new Dict("eventlist");
 	e.parse(xjson);
-
-	//post("JSON from stringify() method!"); 
-	//post();
-	//post(xjson); 
-	//post();	
-	//post(" "); 
-	//post();
+	
+	var k = x.getkeys();
+	var mod = [k.length];
+	
+	for (var i = 0; i < k.length; i++){
+		
+		var section = x.get(k[i]); // get the value at each top level key
+		var sJSON = section.stringify(); //convert to JSON string
+		post(k[i] + "\n");
+		var sectName = k[i];
+		mod[i] = new Dict(sectName); // create a new Dict for each key linked to a Max dict object
+		mod[i].parse(sJSON); //fill the new Dict with the JSON string
+		
+	}
 	
 }
 
