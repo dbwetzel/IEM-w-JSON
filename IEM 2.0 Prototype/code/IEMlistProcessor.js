@@ -25,7 +25,7 @@ function import(filename)
 	// pull_from_coll() will copy data from a coll object named by the argument.
 	// push_to_coll() will copy data from the dict to the coll named by the argument.
 	// after this call is made double-click on the coll in the help patcher to view its content.
-	x.push_to_coll("fooColl");
+	//x.push_to_coll("fooColl");
 
 	
 	// use the stringify() method to get the dictionary (including nested dictionaries) in JSON format
