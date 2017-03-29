@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>IEM Event List Document Structure</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,400,100' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="grid">
+    <div class="row" id = "header">
+      	<div class="col-2">logo</div>
+      	<div class="col-10" style="text-align: right;"><h1>Interactive Event Manager (IEM) 2.0</h1>
+      	<h3>David Brooke Wetzel, 2017</h3>
+    </div>
+    <div class="row" id = "IEMlist">
+      	<div class="col-12">IEM Event List Document
+      		<div class="row">
+      			<div class = "col-12" id = "meta">meta : {} //composer, title, etc.</div>
+      			<div class = "col-12" id = "setup">setup : {} // instantiate and initialize modules
+      				<div class = "col-12" id="newmod">newmod : [ ] // instantiate new modules
+      					<div class = "col-12">{file, name, comments*} // load abstraction and set name</div>
+      					<div class = "col-12">{file, name, comments*} </div>
+      					<div class = "col-12">{file, name, comments*} </div>
+      				</div>
+      				<div class = "col-12" id = "init">init : [ ] // initialize modules
+      					<div class = "col-12">{name, parameters, comments*} // set mod parameters</div>
+      					<div class = "col-12">{name, parameters, comments*} </div>
+      					<div class = "col-12">{name, parameters, comments*} </div>
+      				</div>
+      			</div>
+      			<div class = "col-12" id = "sequences">sequences : {} // numbered event lists
+      				<div class = "col-12">SequenceName : [{},{}.{}] // named event sequence (array)
+      					<div class = "col-12">event {modules : [{},{},{}]} // object contains "modules" array of objects
+	      					<div class = "col-12">{name, parameters{}, comments*} //module object</div>  						
+	      					<div class = "col-12">{name, parameters{}, comments*} //module object</div>  						
+	      					<div class = "col-12">{name, parameters{}, comments*} //module object</div>  						      					
+      					</div>      				
+      				</div>      				
+      				<div class = "col-12">SequenceName : [{},{}.{}] // named event sequence (array)
+      					<div class = "col-12">event {modules : [{},{},{}]} // object contains "modules" array of objects
+	      					<div class = "col-12">{name, parameters{}, comments*} //module object</div>  						
+	      					<div class = "col-12">{name, parameters{}, comments*} //module object</div>  						
+	      					<div class = "col-12">{name, parameters{}, comments*} //module object</div>  						      					
+      					</div>      				
+      				</div>      				
+      			</div>
+      			<div class = "col-12" id = "presets">presets : {} // individually named discrete events
+					<div class = "col-12">presetName1 : {modules : [{},{},{}]} // object contains "modules" array of objects
+						<div class = "col-12">{name, parameters{}, comments*} //module object</div>  						
+						<div class = "col-12">{name, parameters{}, comments*} //module object</div>  						
+						<div class = "col-12">{name, parameters{}, comments*} //module object</div>  						      					
+					</div>      				
+					<div class = "col-12">presetName2 : {modules : [{},{},{}]} // object contains "modules" array of objects
+						<div class = "col-12">{name, parameters{}, comments*} //module object</div>  						
+						<div class = "col-12">{name, parameters{}, comments*} //module object</div>  						
+						<div class = "col-12">{name, parameters{}, comments*} //module object</div>  						      					
+					</div>      				
+      			</div>
+      			
+      		</div>
+      	</div>
+    </div>
+   
+  </div>
+</body>
+</html>
