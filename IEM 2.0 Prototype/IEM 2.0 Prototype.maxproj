@@ -2,7 +2,7 @@
 	"name" : "IEM 2.0 Prototype",
 	"version" : 1,
 	"creationdate" : -721952850,
-	"modificationdate" : -721352166,
+	"modificationdate" : -721339142,
 	"viewrect" : [ 50.0, 94.0, 300.0, 500.0 ],
 	"autoorganize" : 1,
 	"hideprojectwindow" : 0,
@@ -28,12 +28,30 @@
 				"kind" : "javascript",
 				"local" : 1
 			}
+,
+			"IEMsequences.js" : 			{
+				"kind" : "javascript",
+				"local" : 1
+			}
 
 		}
 ,
 		"data" : 		{
 			"cl-ISPW.json" : 			{
 				"kind" : "json",
+				"local" : 1
+			}
+
+		}
+,
+		"other" : 		{
+			"IEMdocumentModel.html" : 			{
+				"kind" : "webpage",
+				"local" : 1
+			}
+,
+			"IEM_ScriptEditor.html" : 			{
+				"kind" : "webpage",
 				"local" : 1
 			}
 
