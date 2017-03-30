@@ -1,7 +1,7 @@
 {
 	"info" : {
 		"doctype": "IEM Event List",
-		"IEM-version" : 2.0,
+		"IEM-version" : "2.0",
 		"author": "David B Wetzel",
 		"date": "2017",
 		"comments" : "new realization in IEM 2.0 with JSON-based event list"

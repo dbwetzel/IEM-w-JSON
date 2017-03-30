@@ -1,19 +1,19 @@
 {
-	"info" : {
-		"doctype": "IEM Event List",
-		"IEM-version" : 2.0,
-		"author": "David B Wetzel",
-		"date": "2017",
-		"comments" : "new realization in IEM 2.0 with JSON-based event list"
-	},
-	"meta": {
-		"composer": "Thea Musgrave",
-		"title": "Narcissus",
-		"subtitle" : "for flute or B-flat clarinet and digital delay",
-		"year": "1987",
-		"commission": "NEA Consortium Commissioning Grant",
-		"note": "Originally realized using the Vesta Kaza DIG411. IEM realization based on 2004 DMA dissertation"
-	},
+	"info" : [
+		{"doctype": "IEM Event List"},
+		{"IEM-version" : "2.0"},
+		{"author": "David B Wetzel"},
+		{"date": "2017"},
+		{"comments" : "new realization in IEM 2.0 with JSON-based event list"}
+	],
+	"meta": [
+		{"composer": "Thea Musgrave"},
+		{"title": "Narcissus"},
+		{"subtitle" : "for flute or B-flat clarinet and digital delay"},
+		{"year": "1987"},
+		{"commission": "NEA Consortium Commissioning Grant"},
+		{"note": "Originally realized using the Vesta Kaza DIG411. IEM realization based on 2004 DMA dissertation"}
+	],
 	"setup": {
 		"newmod": [
 		{

@@ -36,7 +36,7 @@ function import(filename)
 	e.parse(xjson);
 	
 	var k = x.getkeys();
-	var mod = [k.length];
+	var mod = [k.length]; //array same length as keys
 	
 	for (var i = 0; i < k.length; i++){
 		
