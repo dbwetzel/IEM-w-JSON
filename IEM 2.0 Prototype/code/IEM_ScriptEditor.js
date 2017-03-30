@@ -13,9 +13,20 @@ window.max.bindInlet('edit', function () {
 	
 	// get the selected Event Script dictionary and stringify it
 	window.max.getDict('IEM_ScriptEditor', function(dict) {
-//		alert(Object.keys(dict));
-		eventScriptString = JSON.stringify(dict);
-		document.getElementById("EventScript").innerHTML = eventScriptString;
+		var keys = Object.keys(dict);
+//		alert(keys);
+		
+		for(var i = 0; i < keys.length; i ++){
+			var key = keys[i];
+			var x = document.getElementById(key);
+			x.style.display = "block";
+			var obj = dict[key];
+			x.innerHTML = JSON.stringify(obj);
+			
+		}
+
+//		eventScriptString = JSON.stringify(dict);
+//		document.getElementById("EventScript").innerHTML = eventScriptString;
 
 	});
 });

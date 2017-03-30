@@ -91,3 +91,23 @@
     width: 100%;
     padding: 10px;
 }
+
+#info {
+	display: none;	
+}
+
+#meta {
+	display: none;	
+}
+
+#setup {
+	display: none;	
+}
+
+#sequences {
+	display: none;	
+}
+
+#presets {
+	display: none;	
+}
