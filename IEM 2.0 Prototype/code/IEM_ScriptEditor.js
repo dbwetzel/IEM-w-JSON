@@ -3,11 +3,12 @@
 // Update the event script dictionary
 // Export to file
 
-//So far very rudimentary, but it puts JSON into the browser window
+//So far parses the event script into its main parts: info, meta, setup, sequences, and presets
+//items from each section are placed in their own <p> tags within the section <div>
 
 // access dictionary in response to Max "edit" message to jweb inlet
 
-var eventScriptString;
+//var eventScriptString;
 
 window.max.bindInlet('edit', function () {
 	
@@ -28,6 +29,7 @@ window.max.bindInlet('edit', function () {
 					data = info_to_HTML(obj); //function returns a string of HTML
 					break;			
 				case "meta":
+					data = meta_to_HTML(obj); //function returns a string of HTML
 					break;			
 				case "setup":
 					break;			
@@ -36,6 +38,7 @@ window.max.bindInlet('edit', function () {
 				case "preset":
 					break;			
 			}
+//			alert(data);
 			var pos = txt.replace("%data%", data); //replace the placeholder with a stringified obj
     		document.getElementById(key).innerHTML = pos; // reload the div contents
 		}
@@ -46,16 +49,114 @@ window.max.bindInlet('edit', function () {
 	});
 });
 
-function info_to_HTML(obj){ //this object will be an array
+function info_to_HTML(obj){ //this object is a set of key:value pairs
 	var string = "";
 	var item = "";
-		for(var i = 0; i < obj.length; i++){
-			//alert(Object.keys(obj[i]));
-			var key = Object.keys(obj[i]);
-			item ="<p>" + key + " : " + obj[i][key] + "</p>"; //format an item
-			string += item; //append to string
-		}
-	return string;
+	var items = new Array(0);
+	var keys = Object.keys(obj);
+	var key;
+			
+	if(keys.contains("doctype")){
+		item ="<p>" + "Doctype : " + obj.doctype + "</p>"; //format an item
+		items.push(item);
+	}
 	
+	if(keys.contains("IEM-version")){
+		item ="<p>" + "IEM Version : " + obj["IEM-version"] + "</p>"; //format an item
+		items.push(item);
+	}
+
+	if(keys.contains("author")){
+		item ="<p>" + "Author : " + obj.author + "</p>"; //format an item
+		items.push(item);
+	}
+
+	if(keys.contains("date")){
+		item ="<p>" + "Date : " + obj.date + "</p>"; //format an item
+		items.push(item);
+	}
+
+
+	for(var i = 0; i < keys.length; i++){ 
+		key = keys[i];
+		switch(key){ // add the unexpected keys and append them
+			case "doctype":
+				break;
+			case "IEM-version":
+				break;
+			case "author":
+				break;
+			case "date":
+				break;			
+			default:
+				item ="<p>" + key + " : " + obj[key] + "</p>"; //format an item
+				items.push(item);
+				break;
+		}
+	}
+
+	for(var i=0; i < items.length; i++){
+		string += items[i];
+	}
+	return string;	
+}
+
+function meta_to_HTML(obj){ //this object is a set of key:value pairs
+	var string = "";
+	var item = "";
+	var items = new Array(0);
+	var keys = Object.keys(obj);
+	var key;
+		
+	if(keys.contains("composer")){
+		item ="<p>" + "Composer : " + obj.composer + "</p>"; //format an item
+		items.push(item);
+	}
+
+	if(keys.contains("title")){
+		item ="<p>" + "Title : " + obj.title + "</p>"; //format an item
+		items.push(item);
+	}
+
+	if(keys.contains("subtitle")){
+		item ="<p>" + "Subtitle : " + obj.subtitle + "</p>"; //format an item
+		items.push(item);
+	}
+
+	if(keys.contains("year")){
+		item ="<p>" + "Year : " + obj.year + "</p>"; //format an item
+		items.push(item);
+	}
+
+	for(var i = 0; i < keys.length; i++){ 
+		key = keys[i];
+		switch(key){ // add the unexpected keys and append them
+			case "composer":
+				break;
+			case "title":
+				break;
+			case "subtitle":
+				break;
+			case "year":
+				break;			
+			default:
+				item ="<p>" + key + " : " + obj[key] + "</p>"; //format an item
+				items.push(item);
+				break;
+		}
+	}
+
+	for(var i=0; i < items.length; i++){
+		string += items[i];
+	}
+	return string;	
+}
+
+
+Array.prototype.contains = function ( needle ) {
+   for (i in this) {
+       if (this[i] == needle) return true;
+   }
+   return false;
 }
 
