@@ -32,6 +32,7 @@ window.max.bindInlet('edit', function () {
 					data = meta_to_HTML(obj); //function returns a string of HTML
 					break;			
 				case "setup":
+					data = setup_to_HTML(obj);
 					break;			
 				case "sequences":
 					break;			
@@ -152,6 +153,55 @@ function meta_to_HTML(obj){ //this object is a set of key:value pairs
 	return string;	
 }
 
+
+function setup_to_HTML(obj){ //this object should have two keys, newmod and init. Each contains an array of module objects
+	var string = "";
+	var item = "";
+	var items = new Array(0);
+	var keys = Object.keys(obj);
+	var key;
+	var modObj;
+	var modKeys;
+	var modKey;
+	var alert = "";
+
+	if(keys.contains("newmod")){
+		string = "<h3>New Modules</h3><div class = \"row\" id = \"newmod-data\"><div class = \"col-1\"></div><div class = \"col-11\" id = \"newmod\">";
+		for(i = 0; i < obj.newmod.length; i++)
+		{
+			modObj = obj.newmod[i];
+			modKeys = Object.keys(modObj);
+			
+			// output contents of array with prepended 'foo' message
+			alert = "mod #" + i + ", modKeys length: " + modKeys.length + ", keys: " + modKeys;
+			window.max.outlet('post', alert);
+//			item = "<p>" + JSON.stringify(obj.newmod[i]) + "</p>";
+			string += "<div>new module:";
+			for(var j = 0; j < modKeys.length; j++){
+				modKey = modKeys[j];
+				alert = "modKey #" + j + " : " + modKey;
+				window.max.outlet('post', alert);
+				window.max.outlet('post', modObj[modKey]);
+				item = "<p>" + modKey + " : " + modObj[modKey] + "</p>";
+				string += item;
+			}
+			string += "</div>";
+		}
+		string += "</div></div>";
+	}
+	if(keys.contains("init")){
+		string += "<h3>Initialize Modules</h3><div class = \"row\" id = \"init-data\"><div class = \"col-1\"></div><div class = \"col-11\" id = \"init\">";
+		for(i = 0; i < obj.init.length; i++)
+		{
+			item = "<p>" + JSON.stringify(obj.init[i]) + "</p>";
+			string += item;
+		}
+		string += "</div></div>";
+	}
+
+	return string;
+
+}
 
 Array.prototype.contains = function ( needle ) {
    for (i in this) {
