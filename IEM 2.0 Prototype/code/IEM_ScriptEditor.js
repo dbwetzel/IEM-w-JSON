@@ -1,4 +1,4 @@
-// Read in an event script from a Max dictionary
+// Read in an event script from a Max dictionary or JSON
 // Load it into a form for editing
 // Update the event script dictionary
 // Export to file
@@ -10,45 +10,50 @@
 
 //var eventScriptString;
 
+//*
+//connect jweb page to Max 'edit" message.
 window.max.bindInlet('edit', function () {
-	
-	// get the selected Event Script dictionary and stringify it
+	// get the selected Event Script dictionary and pass it to the editor
 	window.max.getDict('IEM_ScriptEditor', function(dict) {
-		var keys = Object.keys(dict);
-		
-		for(var i = 0; i < keys.length; i ++){
-			var key = keys[i]; // get the keys
-			var x = document.getElementById(key); //find the element ID matching the current key
-			x.style.display = "block"; // turn on the <div>
-			var obj = dict[key]; //get the object at the given key
-			var txt = x.innerHTML; // get the current contents of the div
-			// this is the place to insert more obj processing to format the script
-			var data = JSON.stringify(obj); // string to store formatted HTML based on obj
-			switch(key){
-				case "info":
-					data = info_to_HTML(obj); //function returns a string of HTML
-					break;			
-				case "meta":
-					data = meta_to_HTML(obj); //function returns a string of HTML
-					break;			
-				case "setup":
-					data = setup_to_HTML(obj);
-					break;			
-				case "sequences":
-					break;			
-				case "preset":
-					break;			
-			}
-//			alert(data);
-			var pos = txt.replace("%data%", data); //replace the placeholder with a stringified obj
-    		document.getElementById(key).innerHTML = pos; // reload the div contents
-		}
-
-//		eventScriptString = JSON.stringify(dict);
-//		document.getElementById("EventScript").innerHTML = eventScriptString;
-
+		editJSON(dict); // dict is actually a js object
 	});
 });
+// */
+function editJSON(dict){	
+	
+	// parse Event Script JSON to editor web page
+	var keys = Object.keys(dict); // get top level keys
+	
+	for(var i = 0; i < keys.length; i ++){
+		var key = keys[i]; // get the keys
+		var x = document.getElementById(key); //find the element ID matching the current key
+		x.style.display = "block"; // turn on the <div>
+		var obj = dict[key]; //get the object at the given key
+		var txt = x.innerHTML; // get the current contents of the div
+		// this is the place to insert more obj processing to format the script
+		var data = JSON.stringify(obj); // string to store formatted HTML based on obj
+
+		switch(key){
+			case "info":
+				data = info_to_HTML(obj); //function returns a string of HTML
+				break;			
+			case "meta":
+				data = meta_to_HTML(obj); //function returns a string of HTML
+				break;			
+			case "setup":
+				data = setup_to_HTML(obj);
+				break;			
+			case "sequences":
+				break;			
+			case "preset":
+				break;			
+		}
+
+		var pos = txt.replace("%data%", data); //replace the placeholder with a stringified obj
+		document.getElementById(key).innerHTML = pos; // reload the div contents
+	}
+
+}
 
 function info_to_HTML(obj){ //this object is a set of key:value pairs
 	var string = "";
@@ -62,8 +67,8 @@ function info_to_HTML(obj){ //this object is a set of key:value pairs
 		items.push(item);
 	}
 	
-	if(keys.contains("IEM-version")){
-		item ="<p>" + "IEM Version : " + obj["IEM-version"] + "</p>"; //format an item
+	if(keys.contains("IEMversion")){
+		item ="<p>" + "IEM Version : " + obj.IEMversion + "</p>"; //format an item
 		items.push(item);
 	}
 
@@ -173,15 +178,15 @@ function setup_to_HTML(obj){ //this object should have two keys, newmod and init
 			modKeys = Object.keys(modObj);
 			
 			// output contents of array with prepended 'foo' message
-			alert = "mod #" + i + ", modKeys length: " + modKeys.length + ", keys: " + modKeys;
-			window.max.outlet('post', alert);
+//			alert = "mod #" + i + ", modKeys length: " + modKeys.length + ", keys: " + modKeys;
+//			post(alert);
 //			item = "<p>" + JSON.stringify(obj.newmod[i]) + "</p>";
-			string += "<div>new module:";
+			string += "<div id = \"newmod["+ i + "]\">new module:";
 			for(var j = 0; j < modKeys.length; j++){
 				modKey = modKeys[j];
-				alert = "modKey #" + j + " : " + modKey;
-				window.max.outlet('post', alert);
-				window.max.outlet('post', modObj[modKey]);
+//				alert = "modKey #" + j + " : " + modKey;
+//				post(alert);
+//				post(modObj[modKey]);
 				item = "<p>" + modKey + " : " + modObj[modKey] + "</p>";
 				string += item;
 			}
@@ -191,10 +196,39 @@ function setup_to_HTML(obj){ //this object should have two keys, newmod and init
 	}
 	if(keys.contains("init")){
 		string += "<h3>Initialize Modules</h3><div class = \"row\" id = \"init-data\"><div class = \"col-1\"></div><div class = \"col-11\" id = \"init\">";
-		for(i = 0; i < obj.init.length; i++)
+		var initObj, initKeys;
+		for(var k = 0; k < obj.init.length; k++)
 		{
-			item = "<p>" + JSON.stringify(obj.init[i]) + "</p>";
+			initObj = obj.init[k]; // grab the object
+			initKeys = Object.keys(initObj); // get the object's keys
+			post("INIT " + k + ": " + initKeys); // post the keys
+			
+			string += "<div id = \"init[" + k + "]\">initialize module:";
+			if(initKeys.contains("name")){
+				item = "<p>Mod Name: " + initObj.name + "</p>";
+			}
+			
+			if(initKeys.contains("comments")){
+				item += "<p>Comments: " + initObj.comments + "</p>";
+			}
+
+			if(initKeys.contains("audio")){
+				if(typeof initObj.audio === 'object'){
+					var audioKeys = Object.keys(initObj.audio);
+					post("Init item [" + k + "]: Audio keys: " + audioKeys);
+					item += "<p>Audio busses: ";
+					for(var a = 0; a < audioKeys.length; a++){
+						var audioKey = audioKeys[a];
+						item += "<br>" + audioKey + ": " + JSON.stringify(initObj.audio[audioKey]);
+					}
+					item += "</p>";
+				}
+//				item += "<p>Comments: " + initObj.comments + "</p>";
+			}
+			
+// 			item = "<p>" + JSON.stringify(obj.init[k]) + "</p>";
 			string += item;
+			string += "</div>"
 		}
 		string += "</div></div>";
 	}
@@ -204,9 +238,13 @@ function setup_to_HTML(obj){ //this object should have two keys, newmod and init
 }
 
 Array.prototype.contains = function ( needle ) {
-   for (i in this) {
+   for (var i in this) {
        if (this[i] == needle) return true;
    }
    return false;
+}
+
+function post(string){
+	window.max.outlet('post', string);
 }
 
