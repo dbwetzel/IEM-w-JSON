@@ -194,6 +194,8 @@ function setup_to_HTML(obj){ //this object should have two keys, newmod and init
 		}
 		string += "</div></div>";
 	}
+	//INIT section is very similar to a preset event. It is a single event with instructions for multiple modules
+	//Typically, INIT will contain parameter settings plus settings for audio busses and control channels
 	if(keys.contains("init")){
 		string += "<h3>Initialize Modules</h3><div class = \"row\" id = \"init-data\"><div class = \"col-1\"></div><div class = \"col-11\" id = \"init\">";
 		var initObj, initKeys;
@@ -201,7 +203,7 @@ function setup_to_HTML(obj){ //this object should have two keys, newmod and init
 		{
 			initObj = obj.init[k]; // grab the object
 			initKeys = Object.keys(initObj); // get the object's keys
-			post("INIT " + k + ": " + initKeys); // post the keys
+//			post("INIT " + k + ": " + initKeys); // post the keys
 			
 			string += "<div id = \"init[" + k + "]\">initialize module:";
 			if(initKeys.contains("name")){
@@ -219,7 +221,16 @@ function setup_to_HTML(obj){ //this object should have two keys, newmod and init
 					item += "<p>Audio busses: ";
 					for(var a = 0; a < audioKeys.length; a++){
 						var audioKey = audioKeys[a];
-						item += "<br>" + audioKey + ": " + JSON.stringify(initObj.audio[audioKey]);
+						//audio busses have layers, eg "in~" : {"1" : "ADC[0]", "2" : "sampler"}
+						if(typeof initObj.audio[audioKey] === 'object'){
+							item += "<br>" + audioKey + ": " + JSON.stringify(initObj.audio[audioKey]);
+						}
+						else{ //try putting some items in an input box ...
+							item += "<br>" + audioKey + ": ";
+							item += "<input type=\"text\" value=\"" + initObj.audio[audioKey] + "\">";
+							// How should this get ID'd so that the form data is read correctly back into the object?
+						}			
+							
 					}
 					item += "</p>";
 				}
