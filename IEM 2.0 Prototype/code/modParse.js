@@ -39,8 +39,8 @@ function parse(mod){
 		
 	}
 	if(typeof obj.audio == 'object'){
-		post("Parameters: \n");
-		var params = obj.parameters;
+		post("Audio Busses: \n");
+		var params = obj.audio;
 		var keys = Object.keys(params);
 		for(var i = 0; i < keys.length; i ++){
 			var key = keys[i]
@@ -52,11 +52,11 @@ function parse(mod){
 		
 	}
 	if(typeof obj.control == 'object'){
-		post("Parameters: \n");
-		var params = obj.parameters;
+		post("Control Channels: \n");
+		var params = obj.control;
 		var keys = Object.keys(params);
 		for(var i = 0; i < keys.length; i ++){
-			var key = keys[i]
+			var key = keys[i];
 			var val = params[key];
 			post(key + ": " + val);
 			post();
