@@ -34,8 +34,6 @@ function parse(mod){
 			var val = params[key];
 			if(typeof val == 'object'){
 				//if the value is an object
-				post(key + ": " + JSON.stringify(val));
-				post();
 				var valKeys = Object.keys(val);
 				post(valKeys.length);
 				post();
@@ -67,8 +65,19 @@ function parse(mod){
 			var val = params[key];
 			if(typeof val == 'object'){
 				//if the value is an object
-				post(key + ": " + JSON.stringify(val));
+				var valKeys = Object.keys(val);
+				post(valKeys.length);
 				post();
+//				var valIndex;
+				for(var j = 0; j < valKeys.length; j++){
+					var valIndex = valKeys[j];
+					var subKey = key + "[" + valKeys[j] + "]";
+					var valItems = params[key][valIndex];
+					post(subKey + ": ");
+					post(valItems);
+					post();
+					this.patcher.getnamed(subKey).message(valItems);
+				}
 			} 
 			else{
 				post(key + ": " + val);
@@ -87,8 +96,19 @@ function parse(mod){
 			var val = params[key];
 			if(typeof val == 'object'){
 				//if the value is an object
-				post(key + ": " + JSON.stringify(val));
+				var valKeys = Object.keys(val);
+				post(valKeys.length);
 				post();
+//				var valIndex;
+				for(var j = 0; j < valKeys.length; j++){
+					var valIndex = valKeys[j];
+					var subKey = key + "[" + valKeys[j] + "]";
+					var valItems = params[key][valIndex];
+					post(subKey + ": ");
+					post(valItems);
+					post();
+					this.patcher.getnamed(subKey).message(valItems);
+				}
 			} 
 			else{
 				post(key + ": " + val);
