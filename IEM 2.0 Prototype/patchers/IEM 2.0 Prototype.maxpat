@@ -53,7 +53,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 59.0, 103.0, 1139.0, 713.0 ],
+						"rect" : [ 59.0, 103.0, 1083.0, 713.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -83,12 +83,55 @@
 						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-105",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 870.0, 27.0, 150.0, 20.0 ],
+									"style" : "",
+									"text" : "module default dictionary"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-103",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 854.0, 118.0, 150.0, 33.0 ],
+									"style" : "",
+									"text" : "dictionary for the mod instance \"foo\""
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-101",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 4,
+									"outlettype" : [ "dictionary", "", "", "" ],
+									"patching_rect" : [ 842.0, 152.0, 50.5, 22.0 ],
+									"saved_object_attributes" : 									{
+										"embed" : 0,
+										"parameter_enable" : 0
+									}
+,
+									"style" : "",
+									"text" : "dict foo"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-67",
 									"maxclass" : "button",
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 895.0, 186.0, 24.0, 24.0 ],
+									"patching_rect" : [ 842.0, 27.0, 24.0, 24.0 ],
 									"style" : ""
 								}
 
@@ -99,15 +142,27 @@
 										"name" : "foo",
 										"audio" : 										{
 											"in~" : 											{
-												"1" : "foo-input~",
-												"2" : "bar-input~"
+												"1" : "null-in~",
+												"2" : "null-in~",
+												"3" : "null-in~",
+												"4" : "null-in~"
+											}
+,
+											"out~" : 											{
+												"1" : "null-out~",
+												"2" : "null-out~",
+												"3" : "null-out~",
+												"4" : "null-out~"
 											}
 
 										}
 ,
 										"control" : 										{
 											"time-cc" : "knob1",
-											"LFO-cc" : "unassigned"
+											"fb-cc" : "unassigned",
+											"gain-cc" : "unassigned",
+											"LFO-cc" : "unassigned",
+											"depth-cc" : "unassigned"
 										}
 ,
 										"parameters" : 										{
@@ -116,10 +171,10 @@
 											"depth" : 0,
 											"LFO" : 0.1,
 											"fader" : 											{
-												"1" : "0 127 3000",
-												"2" : "127",
-												"3" : "0 127 3000",
-												"4" : "50 1000"
+												"1" : 0,
+												"2" : 0,
+												"3" : 0,
+												"4" : 0
 											}
 
 										}
@@ -131,7 +186,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 4,
 									"outlettype" : [ "dictionary", "", "", "" ],
-									"patching_rect" : [ 895.0, 217.0, 111.0, 22.0 ],
+									"patching_rect" : [ 842.0, 58.0, 111.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"embed" : 1,
 										"parameter_enable" : 0
@@ -148,40 +203,9 @@
 									"maxclass" : "dict.view",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 824.0, 379.0, 195.0, 328.0 ],
+									"patching_rect" : [ 842.0, 186.0, 215.0, 533.0 ],
 									"presentation_rect" : [ 822.0, 376.0, 0.0, 0.0 ],
 									"style" : ""
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-63",
-									"maxclass" : "newobj",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "dictionary" ],
-									"patching_rect" : [ 824.0, 321.0, 191.0, 22.0 ],
-									"style" : "",
-									"text" : "dict.join"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-62",
-									"maxclass" : "newobj",
-									"numinlets" : 2,
-									"numoutlets" : 4,
-									"outlettype" : [ "dictionary", "", "", "" ],
-									"patching_rect" : [ 824.0, 348.0, 50.5, 22.0 ],
-									"saved_object_attributes" : 									{
-										"embed" : 0,
-										"parameter_enable" : 0
-									}
-,
-									"style" : "",
-									"text" : "dict foo"
 								}
 
 							}
@@ -916,6 +940,15 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-64", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-101", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-25", 1 ],
 									"disabled" : 0,
 									"hidden" : 0,
@@ -991,29 +1024,6 @@
 									"destination" : [ "obj-58", 0 ],
 									"disabled" : 0,
 									"hidden" : 0,
-									"order" : 2,
-									"source" : [ "obj-57", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-63", 0 ],
-									"disabled" : 0,
-									"hidden" : 0,
-									"midpoints" : [ 660.5, 178.0, 833.5, 178.0 ],
-									"order" : 1,
-									"source" : [ "obj-57", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-67", 0 ],
-									"disabled" : 0,
-									"hidden" : 0,
-									"midpoints" : [ 660.5, 180.5, 904.5, 180.5 ],
-									"order" : 0,
 									"source" : [ "obj-57", 0 ]
 								}
 
@@ -1049,25 +1059,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-64", 0 ],
-									"disabled" : 0,
-									"hidden" : 0,
-									"source" : [ "obj-62", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-62", 0 ],
-									"disabled" : 0,
-									"hidden" : 0,
-									"source" : [ "obj-63", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-63", 1 ],
+									"destination" : [ "obj-101", 0 ],
 									"disabled" : 0,
 									"hidden" : 0,
 									"source" : [ "obj-65", 0 ]
@@ -1148,7 +1140,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 84.0, 128.0, 899.0, 734.0 ],
+						"rect" : [ 0.0, 26.0, 1361.0, 758.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 12.0,
@@ -1176,7 +1168,6 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"showontab" : 1,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-2",

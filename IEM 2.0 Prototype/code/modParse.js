@@ -23,8 +23,14 @@ function parse(mod){
 	// distribute parameters to named objects in the patcher
 	var obj = JSON.parse(mod);
 	
-	post("Module: " + obj.name + "\n");
+	var modName = obj.name;
 	
+	post("Module: " + modName + "\n");
+	// create a new Dict object reference to the module's main dictionary
+	var modDict = new Dict(modName); 
+	// convert the dictionary into JS object
+	var dictObj = JSON.parse(modDict.stringify());
+		
 	if(typeof obj.parameters == 'object'){
 		post("Parameters: \n");
 		var params = obj.parameters;
@@ -35,8 +41,8 @@ function parse(mod){
 			if(typeof val == 'object'){
 				//if the value is an object
 				var valKeys = Object.keys(val);
-				post(valKeys.length);
-				post();
+//				post(valKeys.length);
+//				post();
 //				var valIndex;
 				for(var j = 0; j < valKeys.length; j++){
 					var valIndex = valKeys[j];
@@ -45,13 +51,17 @@ function parse(mod){
 					post(subKey + ": ");
 					post(valItems);
 					post();
+					// update the module instance dictionary
+					dictObj.parameters[key][valIndex] = valItems; 
+					// update an object in the patcher
 					this.patcher.getnamed(subKey).message(valItems);
 				}
 			} 
 			else{
 				post(key + ": " + val);
 				post();
-				this.patcher.getnamed(key).message(val);
+				dictObj.parameters[key] = val; // update the module instance dictionary
+				this.patcher.getnamed(key).message(val); // set an object in the patcher
 			}
 		}
 		
@@ -76,12 +86,15 @@ function parse(mod){
 					post(subKey + ": ");
 					post(valItems);
 					post();
+					// update the module instance dictionary
+					dictObj.audio[key][valIndex] = valItems; 
 					this.patcher.getnamed(subKey).message(valItems);
 				}
 			} 
 			else{
 				post(key + ": " + val);
 				post();
+				dictObj.audio[key] = val; // update the module instance dictionary
 				this.patcher.getnamed(key).message(val);
 			}
 		}
@@ -107,17 +120,32 @@ function parse(mod){
 					post(subKey + ": ");
 					post(valItems);
 					post();
+					// update the module instance dictionary
+					dictObj.control[key][valIndex] = valItems; 
 					this.patcher.getnamed(subKey).message(valItems);
 				}
 			} 
 			else{
 				post(key + ": " + val);
 				post();
+				dictObj.control[key] = val; // update the module instance dictionary
 				this.patcher.getnamed(key).message(val);
 			}
 		}
 		
 	}
 	
-	
+	// parse the temp JSON object back to module instance dictionary (embedded in the patcher)
+	modDict.parse(JSON.stringify(dictObj));
+
 }
+
+// merge the incoming mod event with the module's dictionary
+function mergeDict(obj, modName){
+	
+	
+	var modDict = new Dict(modName); // create a new Dict object reference to the module's main dictionary
+	
+	
+	
+	}
