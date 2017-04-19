@@ -47,13 +47,13 @@ function test(x)
 
 	},
 	"control" : 	{
-		"in" : 		{
-			"timecc" : "VKtime",
-			"fbcc" : "VKfb",
-			"depthcc" : "VKdepth",
-			"bypasscc" : "VKbypass",
-			"holdcc" : "VKhold",
-			"gaincc" : "VKvolume"
+		"ctlin" : 		{
+			"time" : "VKtime",
+			"feedback" : "VKfb",
+			"depth" : "VKdepth",
+			"bypass" : "VKbypass",
+			"hold" : "VKhold",
+			"gain" : "VKvolume"
 		}
 
 	}
@@ -82,13 +82,13 @@ function test(x)
 
 	},
 	"control" : 	{
-		"in" : 		{
-			"timecc" : "VKtime",
-			"fbcc" : "VKfb",
-			"depthcc" : "VKdepth",
-			"bypasscc" : "VKbypass",
-			"holdcc" : "VKhold",
-			"gaincc" : "VKvolume"
+		"ctlin" : 		{
+			"time" : "VKtime",
+			"feedback" : "VKfb",
+			"depth" : "VKdepth",
+			"bypass" : "VKbypass",
+			"hold" : "VKhold",
+			"gain" : "VKvolume"
 		}
 
 	}

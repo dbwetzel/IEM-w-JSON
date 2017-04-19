@@ -136,7 +136,6 @@ function parse(mod){
 				var valKeys = Object.keys(val);
 				post(valKeys.length);
 				post();
-//				var valIndex;
 				for(var j = 0; j < valKeys.length; j++){
 					var valIndex = valKeys[j];
 					var subKey = key + "[" + valKeys[j] + "]";
