@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 195.0, 85.0, 1361.0, 784.0 ],
+		"rect" : [ 69.0, 79.0, 1361.0, 784.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -38,6 +38,288 @@
 		"subpatcher_template" : "",
 		"showontab" : 1,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "newobj",
+					"numinlets" : 0,
+					"numoutlets" : 0,
+					"patcher" : 					{
+						"fileversion" : 1,
+						"appversion" : 						{
+							"major" : 7,
+							"minor" : 3,
+							"revision" : 3,
+							"architecture" : "x86",
+							"modernui" : 1
+						}
+,
+						"rect" : [ 59.0, 103.0, 1227.0, 620.0 ],
+						"bglocked" : 0,
+						"openinpresentation" : 0,
+						"default_fontsize" : 12.0,
+						"default_fontface" : 0,
+						"default_fontname" : "Arial",
+						"gridonopen" : 1,
+						"gridsize" : [ 15.0, 15.0 ],
+						"gridsnaponopen" : 1,
+						"objectsnaponopen" : 1,
+						"statusbarvisible" : 2,
+						"toolbarvisible" : 1,
+						"lefttoolbarpinned" : 0,
+						"toptoolbarpinned" : 0,
+						"righttoolbarpinned" : 0,
+						"bottomtoolbarpinned" : 0,
+						"toolbars_unpinned_last_save" : 0,
+						"tallnewobj" : 0,
+						"boxanimatetime" : 200,
+						"enablehscroll" : 1,
+						"enablevscroll" : 1,
+						"devicewidth" : 0.0,
+						"description" : "",
+						"digest" : "",
+						"tags" : "",
+						"style" : "",
+						"subpatcher_template" : "",
+						"visible" : 1,
+						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-10",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 503.0, 30.0, 40.0, 22.0 ],
+									"presentation_rect" : [ 503.0, 30.0, 0.0, 0.0 ],
+									"style" : "",
+									"text" : "test 3"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-8",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 568.0, 26.0, 40.0, 22.0 ],
+									"style" : "",
+									"text" : "test 4"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-61",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 448.0, 34.0, 40.0, 22.0 ],
+									"style" : "",
+									"text" : "test 2"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-60",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 401.0, 34.0, 40.0, 22.0 ],
+									"style" : "",
+									"text" : "test 1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-9",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 401.0, 108.0, 102.0, 22.0 ],
+									"style" : "",
+									"text" : "delayTest"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-7",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 617.0, 34.0, 75.0, 22.0 ],
+									"style" : "",
+									"text" : "autowatch 1"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-5",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"patching_rect" : [ 364.0, 34.0, 24.0, 24.0 ],
+									"style" : ""
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-3",
+									"linecount" : 8,
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 339.0, 144.0, 258.0, 116.0 ],
+									"style" : "",
+									"text" : "{\\\"name\\\":\\\"delayTest\\\"\\,\\\"parameters\\\":{\\\"time\\\":1024\\,\\\"fb\\\":0.8\\,\\\"lfo\\\":0.1\\,\\\"depth\\\":1\\,\\\"bypass\\\":0\\,\\\"hold\\\":0\\,\\\"trim\\\":127\\,\\\"dry\\\":60\\,\\\"gain\\\":127}\\,\\\"audio\\\":{\\\"in~\\\":{\\\"1\\\":\\\"ADC~[1]\\\"}\\,\\\"out~\\\":{\\\"wet\\\":\\\"delayTest~\\\"}}\\,\\\"control\\\":{\\\"in\\\":{\\\"timecc\\\":\\\"VKtime\\\"\\,\\\"fbcc\\\":\\\"VKfb\\\"\\,\\\"depthcc\\\":\\\"VKdepth\\\"\\,\\\"bypasscc\\\":\\\"VKbypass\\\"\\,\\\"holdcc\\\":\\\"VKhold\\\"\\,\\\"gaincc\\\":\\\"VKvolume\\\"}}}"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-4",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 364.0, 76.0, 100.0, 22.0 ],
+									"saved_object_attributes" : 									{
+										"filename" : "JSONoutput.js",
+										"parameter_enable" : 0
+									}
+,
+									"style" : "",
+									"text" : "js JSONoutput.js"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"args" : [ "delayTest" ],
+									"bgmode" : 0,
+									"border" : 0,
+									"clickthrough" : 0,
+									"enablehscroll" : 0,
+									"enablevscroll" : 0,
+									"id" : "obj-1",
+									"lockeddragscroll" : 0,
+									"maxclass" : "bpatcher",
+									"name" : "delayJSON.iem.maxpat",
+									"numinlets" : 0,
+									"numoutlets" : 0,
+									"offset" : [ 0.0, 0.0 ],
+									"patching_rect" : [ 325.0, 356.0, 944.0, 180.0 ],
+									"viewvisibility" : 1
+								}
+
+							}
+ ],
+						"lines" : [ 							{
+								"patchline" : 								{
+									"destination" : [ "obj-4", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-10", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-3", 1 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"midpoints" : [ 373.5, 137.0, 587.5, 137.0 ],
+									"source" : [ "obj-4", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-9", 1 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"midpoints" : [ 454.5, 102.5, 493.5, 102.5 ],
+									"source" : [ "obj-4", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-4", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-5", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-4", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"midpoints" : [ 410.5, 65.0, 373.5, 65.0 ],
+									"source" : [ "obj-60", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-4", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"midpoints" : [ 457.5, 66.0, 373.5, 66.0 ],
+									"source" : [ "obj-61", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-4", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"midpoints" : [ 626.5, 67.0, 373.5, 67.0 ],
+									"source" : [ "obj-7", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-4", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-8", 0 ]
+								}
+
+							}
+ ]
+					}
+,
+					"patching_rect" : [ 551.0, 128.0, 101.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"description" : "",
+						"digest" : "",
+						"globalpatchername" : "",
+						"style" : "",
+						"tags" : ""
+					}
+,
+					"style" : "",
+					"text" : "p modTest-Delay"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-6",
 					"maxclass" : "newobj",
@@ -171,11 +453,18 @@
 										}
 ,
 										"control" : 										{
-											"time-cc" : "unassigned",
-											"fb-cc" : "unassigned",
-											"gain-cc" : "unassigned",
-											"LFO-cc" : "unassigned",
-											"depth-cc" : "unassigned"
+											"in" : 											{
+												"time-cc" : "unassigned",
+												"fb-cc" : "unassigned",
+												"gain-cc" : "unassigned",
+												"LFO-cc" : "unassigned",
+												"depth-cc" : "unassigned"
+											}
+,
+											"out" : 											{
+												"LFO-out" : "unassigned"
+											}
+
 										}
 ,
 										"parameters" : 										{
@@ -719,7 +1008,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 291.0, 277.0, 141.0, 74.0 ],
 									"style" : "",
-									"text" : "drop this in a patch and parameters and settings in the JSON string will be distributed to all the named objects "
+									"text" : "drop this in a patch; parameters and settings in the JSON string will be distributed to all the named objects "
 								}
 
 							}
@@ -790,7 +1079,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 449.0, 189.0, 188.0, 116.0 ],
 									"style" : "",
-									"text" : "\"{\\\"name\\\":\\\"foo\\\",\\\"audio\\\":{\\\"in~\\\":{\\\"1\\\":\\\"ADC~[1]\\\",\\\"2\\\":\\\"ADC~[2]\\\"}},\\\"control\\\":{\\\"time-cc\\\":\\\"footswitch1\\\"},\\\"parameters\\\":{\\\"time\\\":1024,\\\"fb\\\":0.5,\\\"fader\\\":{\\\"1\\\":\\\"0 64 2000\\\",\\\"2\\\":\\\"0 127 2000\\\",\\\"3\\\":\\\"0 3000\\\",\\\"4\\\":\\\"127 1000\\\"}}}\""
+									"text" : "\"{\\\"name\\\":\\\"foo\\\",\\\"audio\\\":{\\\"in~\\\":{\\\"1\\\":\\\"ADC~[1]\\\",\\\"2\\\":\\\"ADC~[2]\\\"}},\\\"control\\\":{\\\"in\\\":{\\\"time-cc\\\":\\\"footswitch1\\\"}},\\\"parameters\\\":{\\\"time\\\":1024,\\\"fb\\\":0.5,\\\"fader\\\":{\\\"1\\\":\\\"0 64 2000\\\",\\\"2\\\":\\\"0 127 2000\\\",\\\"3\\\":\\\"0 3000\\\",\\\"4\\\":\\\"127 1000\\\"}}}\""
 								}
 
 							}
@@ -867,7 +1156,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 38.0, 249.0, 102.0, 210.0 ],
 									"style" : "",
-									"text" : "\"{\\\"name\\\":\\\"foo\\\",\\\"audio\\\":{\\\"in~\\\":{\\\"1\\\":\\\"ADC~[1]\\\",\\\"2\\\":\\\"ADC~[2]\\\"}},\\\"control\\\":{\\\"time-cc\\\":\\\"footswitch1\\\"},\\\"parameters\\\":{\\\"time\\\":1024,\\\"fb\\\":0.5,\\\"fader\\\":{\\\"1\\\":\\\"0 64 2000\\\",\\\"2\\\":\\\"0 127 2000\\\",\\\"3\\\":\\\"0 3000\\\",\\\"4\\\":\\\"127 1000\\\"}}}\""
+									"text" : "\"{\\\"name\\\":\\\"foo\\\",\\\"audio\\\":{\\\"in~\\\":{\\\"1\\\":\\\"ADC~[1]\\\",\\\"2\\\":\\\"ADC~[2]\\\"}},\\\"control\\\":{\\\"in\\\":{\\\"time-cc\\\":\\\"footswitch1\\\"}},\\\"parameters\\\":{\\\"time\\\":1024,\\\"fb\\\":0.5,\\\"fader\\\":{\\\"1\\\":\\\"0 64 2000\\\",\\\"2\\\":\\\"0 127 2000\\\",\\\"3\\\":\\\"0 3000\\\",\\\"4\\\":\\\"127 1000\\\"}}}\""
 								}
 
 							}
@@ -3705,6 +3994,12 @@
 				"name" : "modParse.js",
 				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/code",
 				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "delayJSON.iem.maxpat",
+				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/patchers",
+				"type" : "JSON",
 				"implicit" : 1
 			}
  ],

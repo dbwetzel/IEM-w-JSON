@@ -2,7 +2,7 @@
 	"name" : "IEM 2.0 Prototype",
 	"version" : 1,
 	"creationdate" : -721952850,
-	"modificationdate" : -721339142,
+	"modificationdate" : -719567800,
 	"viewrect" : [ 50.0, 94.0, 300.0, 500.0 ],
 	"autoorganize" : 1,
 	"hideprojectwindow" : 0,
@@ -20,6 +20,11 @@
 				"kind" : "patcher",
 				"local" : 1
 			}
+,
+			"delayJSON.iem.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
 
 		}
 ,
@@ -30,6 +35,16 @@
 			}
 ,
 			"IEMsequences.js" : 			{
+				"kind" : "javascript",
+				"local" : 1
+			}
+,
+			"JSONoutput.js" : 			{
+				"kind" : "javascript",
+				"local" : 1
+			}
+,
+			"modParse.js" : 			{
 				"kind" : "javascript",
 				"local" : 1
 			}
