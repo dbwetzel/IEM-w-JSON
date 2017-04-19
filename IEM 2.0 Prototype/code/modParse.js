@@ -52,16 +52,26 @@ function parse(mod){
 					post(valItems);
 					post();
 					// update the module instance dictionary
-					dictObj.parameters[key][valIndex] = valItems; 
+					if(valIndex in dictObj.parameters[key]){
+ 						dictObj.parameters[key][valIndex] = valItems;
+					}
 					// update an object in the patcher
-					this.patcher.getnamed(subKey).message(valItems);
+					if(this.patcher.getnamed(subKey)){
+						this.patcher.getnamed(subKey).message(valItems);
+					}
 				}
 			} 
 			else{
 				post(key + ": " + val);
 				post();
-				dictObj.parameters[key] = val; // update the module instance dictionary
-				this.patcher.getnamed(key).message(val); // set an object in the patcher
+				
+				if(key in dictObj.parameters){ // update the module instance dictionary
+					dictObj.parameters[key] = val;
+				}
+				
+				if(this.patcher.getnamed(key)){
+ 					this.patcher.getnamed(key).message(val); // set an object in the patcher
+				}
 			}
 		}
 		
@@ -81,21 +91,35 @@ function parse(mod){
 //				var valIndex;
 				for(var j = 0; j < valKeys.length; j++){
 					var valIndex = valKeys[j];
-					var subKey = key + "[" + valKeys[j] + "]";
 					var valItems = params[key][valIndex];
+
+					if(valIndex in dictObj.audio[key]){
+						dictObj.audio[key][valIndex] = valItems;
+					}
+					
+					
+					var subKey = key + "[" + valKeys[j] + "]"; //add brackets
+					// grouped parameters in IEM will be named like an array:
+					// "in~[1]", "in~[2]", etc
 					post(subKey + ": ");
 					post(valItems);
 					post();
 					// update the module instance dictionary
-					dictObj.audio[key][valIndex] = valItems; 
-					this.patcher.getnamed(subKey).message(valItems);
+					if(this.patcher.getnamed(subKey)){ // check for named Max object
+						this.patcher.getnamed(subKey).message(valItems); // set named object
+					} // ignore anything else (e.g. "comments")
 				}
 			} 
 			else{
 				post(key + ": " + val);
 				post();
-				dictObj.audio[key] = val; // update the module instance dictionary
-				this.patcher.getnamed(key).message(val);
+				if(key in dictObj.audio){//screen out extraneous stuff from the mod dictionary
+					// this could include comments or other undefined keys
+					dictObj.audio[key] = val; // update the module instance dictionary
+				}
+				if(this.patcher.getnamed(key)){ // check to see if it exists first
+					this.patcher.getnamed(key).message(val); // set a Max object
+				} // ignore items in the mod event that do not have named Max objects
 			}
 		}
 		
@@ -121,15 +145,25 @@ function parse(mod){
 					post(valItems);
 					post();
 					// update the module instance dictionary
-					dictObj.control[key][valIndex] = valItems; 
-					this.patcher.getnamed(subKey).message(valItems);
+					if(valIndex in dictObj.control[key]){
+						dictObj.control[key][valIndex] = valItems; 
+					}
+					if(this.patcher.getnamed(subKey)){
+						this.patcher.getnamed(subKey).message(valItems);
+					}
 				}
 			} 
 			else{
 				post(key + ": " + val);
 				post();
-				dictObj.control[key] = val; // update the module instance dictionary
-				this.patcher.getnamed(key).message(val);
+				
+				if(key in dictObj.control){ // only if it exists in the master
+ 					dictObj.control[key] = val; // update the module instance dictionary
+				}
+				
+				if(this.patcher.getnamed(key)){
+					this.patcher.getnamed(key).message(val);
+				}
 			}
 		}
 		

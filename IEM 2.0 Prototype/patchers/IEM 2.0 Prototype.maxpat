@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 39.0, 78.0, 1361.0, 784.0 ],
+		"rect" : [ 195.0, 85.0, 1361.0, 784.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -53,7 +53,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 59.0, 103.0, 1083.0, 713.0 ],
+						"rect" : [ 77.0, 90.0, 940.0, 713.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -82,6 +82,19 @@
 						"subpatcher_template" : "",
 						"visible" : 1,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-113",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"patching_rect" : [ 774.0, 27.0, 60.0, 22.0 ],
+									"style" : "",
+									"text" : "loadbang"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-105",
 									"maxclass" : "comment",
@@ -158,7 +171,7 @@
 										}
 ,
 										"control" : 										{
-											"time-cc" : "knob1",
+											"time-cc" : "unassigned",
 											"fb-cc" : "unassigned",
 											"gain-cc" : "unassigned",
 											"LFO-cc" : "unassigned",
@@ -166,8 +179,8 @@
 										}
 ,
 										"parameters" : 										{
-											"time" : 512,
-											"fb" : 0.8,
+											"time" : 0,
+											"fb" : 0.0,
 											"depth" : 0,
 											"LFO" : 0.1,
 											"fader" : 											{
@@ -204,7 +217,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 842.0, 186.0, 215.0, 533.0 ],
-									"presentation_rect" : [ 822.0, 376.0, 0.0, 0.0 ],
 									"style" : ""
 								}
 
@@ -217,7 +229,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 127.0, 164.0, 40.0, 22.0 ],
-									"presentation_rect" : [ 286.0, 178.0, 0.0, 0.0 ],
 									"style" : "",
 									"text" : "test 2"
 								}
@@ -267,7 +278,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 305.0, 156.0, 99.0, 47.0 ],
+									"patching_rect" : [ 305.0, 156.0, 100.0, 47.0 ],
 									"style" : "",
 									"text" : "pass input to the parse() function of modParse.js"
 								}
@@ -308,7 +319,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 11.0, 33.0, 407.0, 47.0 ],
 									"style" : "",
-									"text" : "This is a demo for the mechanism by which JSON based mod events are parsed within a module. Parameters and setting defined in the mod even are parsed out to the named objects of a patcher."
+									"text" : "This is a demo for the mechanism by which JSON based mod events are parsed within a module. Parameters and setting defined in the mod event are parsed out to the named objects of a patcher."
 								}
 
 							}
@@ -331,7 +342,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 642.0, 379.0, 69.0, 20.0 ],
-									"presentation_rect" : [ 762.0, 376.0, 0.0, 0.0 ],
 									"style" : "",
 									"text" : "in~[2]"
 								}
@@ -345,7 +355,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 642.0, 439.0, 114.0, 22.0 ],
-									"presentation_rect" : [ 762.0, 436.0, 0.0, 0.0 ],
 									"style" : "",
 									"text" : "ADC~[2]"
 								}
@@ -359,7 +368,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 642.0, 401.0, 74.0, 22.0 ],
-									"presentation_rect" : [ 762.0, 398.0, 0.0, 0.0 ],
 									"style" : "",
 									"text" : "prepend set",
 									"varname" : "in~[2]"
@@ -374,7 +382,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 523.0, 575.0, 74.0, 22.0 ],
-									"presentation_rect" : [ 641.0, 574.0, 0.0, 0.0 ],
 									"style" : "",
 									"text" : "127 1000"
 								}
@@ -388,7 +395,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 441.0, 575.0, 74.0, 22.0 ],
-									"presentation_rect" : [ 565.0, 575.0, 0.0, 0.0 ],
 									"style" : "",
 									"text" : "0 3000"
 								}
@@ -402,7 +408,6 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 362.0, 575.0, 74.0, 22.0 ],
-									"presentation_rect" : [ 486.0, 572.0, 0.0, 0.0 ],
 									"style" : "",
 									"text" : "0 127 2000"
 								}
@@ -428,7 +433,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 523.0, 516.0, 58.0, 20.0 ],
-									"presentation_rect" : [ 644.0, 515.0, 0.0, 0.0 ],
 									"style" : "",
 									"text" : "fader[4]"
 								}
@@ -441,7 +445,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 441.0, 516.0, 58.0, 20.0 ],
-									"presentation_rect" : [ 560.0, 518.0, 0.0, 0.0 ],
 									"style" : "",
 									"text" : "fader[3]"
 								}
@@ -454,7 +457,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 362.0, 516.0, 58.0, 20.0 ],
-									"presentation_rect" : [ 485.0, 516.0, 0.0, 0.0 ],
 									"style" : "",
 									"text" : "fader[2]"
 								}
@@ -863,7 +865,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 38.0, 249.0, 100.0, 210.0 ],
+									"patching_rect" : [ 38.0, 249.0, 102.0, 210.0 ],
 									"style" : "",
 									"text" : "\"{\\\"name\\\":\\\"foo\\\",\\\"audio\\\":{\\\"in~\\\":{\\\"1\\\":\\\"ADC~[1]\\\",\\\"2\\\":\\\"ADC~[2]\\\"}},\\\"control\\\":{\\\"time-cc\\\":\\\"footswitch1\\\"},\\\"parameters\\\":{\\\"time\\\":1024,\\\"fb\\\":0.5,\\\"fader\\\":{\\\"1\\\":\\\"0 64 2000\\\",\\\"2\\\":\\\"0 127 2000\\\",\\\"3\\\":\\\"0 3000\\\",\\\"4\\\":\\\"127 1000\\\"}}}\""
 								}
@@ -944,6 +946,15 @@
 									"disabled" : 0,
 									"hidden" : 0,
 									"source" : [ "obj-101", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-65", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-113", 0 ]
 								}
 
 							}
