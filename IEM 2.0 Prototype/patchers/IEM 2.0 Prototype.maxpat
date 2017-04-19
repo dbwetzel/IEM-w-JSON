@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 45.0, 79.0, 1361.0, 784.0 ],
+		"rect" : [ 76.0, 78.0, 1361.0, 784.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,6 +39,32 @@
 		"showontab" : 1,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-44",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 551.0, 24.0, 150.0, 33.0 ],
+					"style" : "",
+					"text" : "testing and development of modParse function"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-22",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 551.0, 95.0, 150.0, 33.0 ],
+					"style" : "",
+					"text" : "this contains an actual IEM module"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-10",
 					"maxclass" : "newobj",
 					"numinlets" : 0,
@@ -53,7 +79,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 59.0, 103.0, 987.0, 674.0 ],
+						"rect" : [ 414.0, 102.0, 827.0, 674.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1330,7 +1356,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 545.0, 83.0, 75.0, 22.0 ],
+					"patching_rect" : [ 551.0, 58.0, 75.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",

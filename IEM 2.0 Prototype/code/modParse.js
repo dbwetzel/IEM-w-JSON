@@ -32,7 +32,7 @@ function parse(mod){
 	var dictObj = JSON.parse(modDict.stringify());
 		
 	if(typeof obj.parameters == 'object'){
-		post("Parameters: \n");
+		post("Parameters:\n ");
 		var params = obj.parameters;
 		var keys = Object.keys(params);
 		for(var i = 0; i < keys.length; i ++){
@@ -41,8 +41,6 @@ function parse(mod){
 			if(typeof val == 'object'){
 				//if the value is an object
 				var valKeys = Object.keys(val);
-//				post(valKeys.length);
-//				post();
 //				var valIndex;
 				for(var j = 0; j < valKeys.length; j++){
 					var valIndex = valKeys[j];
@@ -77,7 +75,7 @@ function parse(mod){
 		
 	}
 	if(typeof obj.audio == 'object'){
-		post("Audio Busses: \n");
+		post("Audio Busses:\n ");
 		var params = obj.audio;
 		var keys = Object.keys(params);
 		for(var i = 0; i < keys.length; i ++){
@@ -86,8 +84,6 @@ function parse(mod){
 			if(typeof val == 'object'){
 				//if the value is an object
 				var valKeys = Object.keys(val);
-				post(valKeys.length);
-				post();
 //				var valIndex;
 				for(var j = 0; j < valKeys.length; j++){
 					var valIndex = valKeys[j];
@@ -125,7 +121,7 @@ function parse(mod){
 		
 	}
 	if(typeof obj.control == 'object'){
-		post("Control Channels: \n");
+		post("Control Channels:\n ");
 		var params = obj.control;
 		var keys = Object.keys(params);
 		for(var i = 0; i < keys.length; i ++){
@@ -134,8 +130,7 @@ function parse(mod){
 			if(typeof val == 'object'){
 				//if the value is an object
 				var valKeys = Object.keys(val);
-				post(valKeys.length);
-				post();
+//				var valIndex;
 				for(var j = 0; j < valKeys.length; j++){
 					var valIndex = valKeys[j];
 					var subKey = key + "[" + valKeys[j] + "]";
@@ -171,6 +166,49 @@ function parse(mod){
 	// parse the temp JSON object back to module instance dictionary (embedded in the patcher)
 	modDict.parse(JSON.stringify(dictObj));
 
+}
+
+//parse the command line to named objects in the patcher
+// example: parameters::time 512 audio::in~::1 ADC[1]
+function text(){
+	var a = arrayfromargs(arguments); //get input
+	var maxObjName = [], maxObjVal = []; //make an array of Max objects and values
+	var objs=0, vals=0; //keep track of objects and values for indexing
+	for(var i = 0; i < a.length; i++){
+		var s = String(a[i]); //a[0] == "parameters::time" a[1] == "512"
+		var arr = s.split("::"); //create an array from each argument
+		if(arr.length > 1) // e.g., parameters::time or audio::in~::1
+		{
+			maxObjName[objs] = arr[1]; //ignore "parameters" or "audio"
+			for(var x = 2; x < arr.length; x++){//start with third element
+				maxObjName[objs] += "[" + arr[x] + "]";
+			}
+			objs++ // count the objects found
+
+		}
+		else {
+			maxObjVal[vals] = arr[0];
+			vals ++; //count the values
+		}	
+	}
+	for(var j = 0; j < maxObjName.length; j++){
+		post(maxObjName[j] + " = " + maxObjVal[j]);
+		post();
+		if(this.patcher.getnamed(maxObjName[j])){ //check for existence
+			var mObj = this.patcher.getnamed(maxObjName[j]);
+			post("Obj type: " + mObj.maxclass);
+			post();
+			switch(mObj.maxclass){ //check the Max object type
+				case "number":
+					maxObjVal[j] = Number(maxObjVal[j]); //typecast for numbers
+					break; // works for both ints and floats
+			}
+			// set the value of a named Max object in the patcher
+			this.patcher.getnamed(maxObjName[j]).message(maxObjVal[j]);
+		}
+
+	}
+	
 }
 
 // merge the incoming mod event with the module's dictionary
