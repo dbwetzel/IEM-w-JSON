@@ -69,23 +69,28 @@
 			"comments": "set input to Mic 1; set external controls",
 			"name": "Ndelay",
 			"audio": {
-				"in~": "ADC[0]",
-				"out~": "Ndelay~"
+				"in~": {
+					"1" : "ADC[1]",
+					"2" : "ADC[2]"
+					},
+				"out~": {
+					"wet" : "Ndelay~"
+					}
 			},
 			"control": {
-				"in": {
+				"ctlin": {
 					"comments": "receive from VK emulator",
 					"time": "VKtime",
-					"fb": "VKfb",
+					"feedback": "VKfb",
 					"depth": "VKdepth",
-					"LFOspeed": "VKspeed",
+					"LFO": "VKspeed",
 					"hold": "VKhold",
 					"bypass": "VKbypass",
 					"gain": "VKvol",
 					"trim": "VKinput",
 					"dry": "VKdry"
 				},
-				"out": {}
+				"ctlout": {}
 			},
 			"parameters": {
 				"trim": 127,
@@ -101,13 +106,13 @@
 			"comments": "Set up DIG411 emulator",
 			"name": "VK411",
 			"control": {
-				"in": {
+				"ctlin": {
 					"comments": "control VK interface from MIDI pedals",
 					"vol": "vPedal",
 					"hold": "sustain",
 					"bp": "modwheel"
 				},
-				"out": {
+				"ctlout": {
 					"comments": "send control data to delay module",
 					"vol": "VKvol",
 					"dry": "VKdry",
@@ -135,7 +140,7 @@
 			"comments": "Npedals: assign & setup MIDI foot pedals",
 			"name": "Npedals",
 			"control": {
-				"out": {
+				"ctlout": {
 					"1": "step",
 					"2": "sustain",
 					"3": "sustain",
@@ -170,10 +175,10 @@
 		}, {
 			"name": "Nvol",
 			"control": {
-				"in": {
+				"ctlin": {
 					"trigger": "autovol"
 				},
-				"out": {
+				"ctlout": {
 					"target": "volpedal"
 				}
 			},
@@ -184,7 +189,7 @@
 			"comments": "set next-event pedal and set sequence",
 			"name": "main",
 			"control": {
-				"in": {
+				"ctlin": {
 					"event": "step"
 				}
 			},
@@ -219,7 +224,8 @@
 			}]
 		}, {
 			"comments": "EVENT 2 - m. 63 \"Sees pool of water\" DEL=512x0.5 FB=0 BYPASS=OFF",
-			"modules": [{
+			"modules": [
+			{
 				"name": "main",
 				"parameters": {
 					"console": "m. 63 - \"Sees a pool of water\" - DEL=512x0.5 FB=0 BYPASS=OFF"

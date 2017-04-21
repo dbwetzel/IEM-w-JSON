@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 214.0, 64.0, 857.0, 712.0 ],
+		"rect" : [ 233.0, 44.0, 1107.0, 766.0 ],
 		"bglocked" : 1,
 		"openinpresentation" : 1,
 		"default_fontsize" : 9.0,
@@ -2624,7 +2624,7 @@
 											"modernui" : 1
 										}
 ,
-										"rect" : [ 513.0, 89.0, 629.0, 705.0 ],
+										"rect" : [ 534.0, 44.0, 629.0, 705.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 0,
 										"default_fontsize" : 9.0,
@@ -2652,7 +2652,152 @@
 										"style" : "",
 										"subpatcher_template" : "",
 										"title" : "About IEM Delay ...",
+										"visible" : 1,
 										"boxes" : [ 											{
+												"box" : 												{
+													"id" : "obj-64",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 297.0, 651.0, 182.0, 17.0 ],
+													"style" : "",
+													"text" : "// sets value for Max object \"ctlin[hold]\""
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"id" : "obj-65",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 152.0, 651.0, 143.0, 17.0 ],
+													"style" : "",
+													"text" : "control::ctlin::hold footswitch"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontface" : 1,
+													"id" : "obj-66",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 35.0, 651.0, 115.0, 17.0 ],
+													"style" : "",
+													"text" : "Command line example: "
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"id" : "obj-63",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 250.0, 442.0, 150.0, 17.0 ],
+													"style" : "",
+													"text" : "// sets value for Max object \"in~[1]\""
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"id" : "obj-60",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 145.0, 442.0, 102.0, 17.0 ],
+													"style" : "",
+													"text" : "audio::in~::1 ADC[1]"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontface" : 1,
+													"id" : "obj-61",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 35.0, 442.0, 115.0, 17.0 ],
+													"style" : "",
+													"text" : "Command line example: "
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial Bold",
+													"fontsize" : 9.0,
+													"id" : "obj-59",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 44.5, 493.0, 45.0, 17.0 ],
+													"presentation_rect" : [ 45.0, 494.0, 0.0, 0.0 ],
+													"style" : "",
+													"text" : "ctlin"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial Bold",
+													"fontsize" : 9.0,
+													"id" : "obj-58",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 65.0, 423.0, 45.0, 17.0 ],
+													"presentation_rect" : [ 65.0, 428.0, 0.0, 0.0 ],
+													"style" : "",
+													"text" : "wet"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontname" : "Arial Bold",
+													"fontsize" : 9.0,
+													"id" : "obj-57",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 65.0, 366.0, 28.0, 17.0 ],
+													"presentation_rect" : [ 81.0, 372.0, 0.0, 0.0 ],
+													"style" : "",
+													"text" : "1"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"id" : "obj-56",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 145.0, 309.0, 150.0, 17.0 ],
+													"style" : "",
+													"text" : "parameters::trim 127"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"fontface" : 1,
+													"id" : "obj-54",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 35.0, 309.0, 115.0, 17.0 ],
+													"style" : "",
+													"text" : "Command line example: "
+												}
+
+											}
+, 											{
 												"box" : 												{
 													"fontname" : "Arial",
 													"fontsize" : 9.0,
@@ -2688,7 +2833,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 373.0, 485.0, 17.0 ],
+													"patching_rect" : [ 108.0, 423.0, 485.0, 17.0 ],
 													"style" : "",
 													"text" : "[symbol] name for a send~ object to act as an audio bus in the IEM network for unaffected (\"dry\") signal"
 												}
@@ -2702,9 +2847,9 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 373.0, 45.0, 17.0 ],
+													"patching_rect" : [ 65.0, 404.0, 45.0, 17.0 ],
 													"style" : "",
-													"text" : "dry~"
+													"text" : "dry"
 												}
 
 											}
@@ -2716,7 +2861,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 527.0, 485.0, 17.0 ],
+													"patching_rect" : [ 108.0, 632.0, 485.0, 17.0 ],
 													"style" : "",
 													"text" : "[symbol] name for a receive object to act as a control channel input in the IEM network"
 												}
@@ -2730,9 +2875,9 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 527.0, 39.0, 17.0 ],
+													"patching_rect" : [ 53.0, 632.0, 39.0, 17.0 ],
 													"style" : "",
-													"text" : "holdcc"
+													"text" : "hold"
 												}
 
 											}
@@ -2744,7 +2889,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 512.0, 485.0, 17.0 ],
+													"patching_rect" : [ 108.0, 617.0, 485.0, 17.0 ],
 													"style" : "",
 													"text" : "[symbol] name for a receive object to act as a control channel input in the IEM network"
 												}
@@ -2758,9 +2903,9 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 512.0, 53.0, 17.0 ],
+													"patching_rect" : [ 53.0, 617.0, 53.0, 17.0 ],
 													"style" : "",
-													"text" : "bypasscc"
+													"text" : "bypass"
 												}
 
 											}
@@ -2772,7 +2917,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 497.0, 485.0, 17.0 ],
+													"patching_rect" : [ 108.0, 602.0, 485.0, 17.0 ],
 													"style" : "",
 													"text" : "[symbol] name for a receive object to act as a control channel input in the IEM network"
 												}
@@ -2786,9 +2931,9 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 497.0, 45.0, 17.0 ],
+													"patching_rect" : [ 53.0, 602.0, 45.0, 17.0 ],
 													"style" : "",
-													"text" : "gaincc"
+													"text" : "gain"
 												}
 
 											}
@@ -2800,7 +2945,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 482.0, 485.0, 17.0 ],
+													"patching_rect" : [ 108.0, 587.0, 485.0, 17.0 ],
 													"style" : "",
 													"text" : "[symbol] name for a receive object to act as a control channel input in the IEM network"
 												}
@@ -2814,9 +2959,9 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 482.0, 45.0, 17.0 ],
+													"patching_rect" : [ 53.0, 587.0, 45.0, 17.0 ],
 													"style" : "",
-													"text" : "timecc"
+													"text" : "time"
 												}
 
 											}
@@ -2828,7 +2973,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 467.0, 485.0, 17.0 ],
+													"patching_rect" : [ 108.0, 572.0, 485.0, 17.0 ],
 													"style" : "",
 													"text" : "[symbol] name for a receive object to act as a control channel input in the IEM network"
 												}
@@ -2842,9 +2987,9 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 467.0, 45.0, 17.0 ],
+													"patching_rect" : [ 53.0, 572.0, 45.0, 17.0 ],
 													"style" : "",
-													"text" : "depthcc"
+													"text" : "depth"
 												}
 
 											}
@@ -2856,7 +3001,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 452.0, 485.0, 17.0 ],
+													"patching_rect" : [ 108.0, 557.0, 485.0, 17.0 ],
 													"style" : "",
 													"text" : "[symbol] name for a receive object to act as a control channel input in the IEM network"
 												}
@@ -2870,9 +3015,9 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 452.0, 45.0, 17.0 ],
+													"patching_rect" : [ 53.0, 557.0, 45.0, 17.0 ],
 													"style" : "",
-													"text" : "lfocc"
+													"text" : "lfo"
 												}
 
 											}
@@ -2884,7 +3029,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 437.0, 485.0, 17.0 ],
+													"patching_rect" : [ 108.0, 542.0, 485.0, 17.0 ],
 													"style" : "",
 													"text" : "[symbol] name for a receive object to act as a control channel input in the IEM network"
 												}
@@ -2898,9 +3043,9 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 437.0, 45.0, 17.0 ],
+													"patching_rect" : [ 53.0, 542.0, 45.0, 17.0 ],
 													"style" : "",
-													"text" : "buffercc"
+													"text" : "buffer"
 												}
 
 											}
@@ -2912,7 +3057,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 422.0, 485.0, 17.0 ],
+													"patching_rect" : [ 108.0, 527.0, 485.0, 17.0 ],
 													"style" : "",
 													"text" : "[symbol] name for a receive object to act as a control channel input in the IEM network"
 												}
@@ -2926,9 +3071,9 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 422.0, 45.0, 17.0 ],
+													"patching_rect" : [ 53.0, 527.0, 45.0, 17.0 ],
 													"style" : "",
-													"text" : "trimcc"
+													"text" : "trim"
 												}
 
 											}
@@ -2940,7 +3085,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 407.0, 485.0, 17.0 ],
+													"patching_rect" : [ 108.0, 512.0, 485.0, 17.0 ],
 													"style" : "",
 													"text" : "[symbol] name for a receive object to act as a control channel input in the IEM network"
 												}
@@ -2954,9 +3099,9 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 407.0, 45.0, 17.0 ],
+													"patching_rect" : [ 53.0, 512.0, 53.0, 17.0 ],
 													"style" : "",
-													"text" : "fbcc"
+													"text" : "feedback"
 												}
 
 											}
@@ -2968,9 +3113,9 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 35.0, 390.0, 129.0, 18.0 ],
+													"patching_rect" : [ 35.0, 465.0, 129.0, 18.0 ],
 													"style" : "",
-													"text" : "Control channel inputs"
+													"text" : "Control channels"
 												}
 
 											}
@@ -3094,7 +3239,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 358.0, 485.0, 17.0 ],
+													"patching_rect" : [ 108.0, 404.0, 485.0, 17.0 ],
 													"style" : "",
 													"text" : "[symbol] name for a send~ object to act as an audio bus in the IEM network for delayed (\"wet\") signal"
 												}
@@ -3108,7 +3253,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 325.0, 485.0, 17.0 ],
+													"patching_rect" : [ 108.0, 366.0, 485.0, 17.0 ],
 													"style" : "",
 													"text" : "[symbol] name for a receive~ object to act as an audio bus in the IEM network"
 												}
@@ -3122,7 +3267,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 358.0, 45.0, 17.0 ],
+													"patching_rect" : [ 53.0, 385.0, 45.0, 17.0 ],
 													"style" : "",
 													"text" : "out~"
 												}
@@ -3136,7 +3281,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 325.0, 46.0, 17.0 ],
+													"patching_rect" : [ 53.0, 351.0, 28.0, 17.0 ],
 													"style" : "",
 													"text" : "in~"
 												}
@@ -3166,7 +3311,7 @@
 													"numoutlets" : 0,
 													"patching_rect" : [ 108.0, 209.0, 485.0, 17.0 ],
 													"style" : "",
-													"text" : "[msec] Set the delay modulation depth in msec (LFO +/- excursion from the set delay time)"
+													"text" : "[%] Set the delay modulation depth as percentage of delay time (LFO +/- excursion from the set delay time)"
 												}
 
 											}
@@ -3343,126 +3488,13 @@
 												"box" : 												{
 													"fontname" : "Arial Bold",
 													"fontsize" : 10.0,
-													"id" : "obj-5",
-													"maxclass" : "comment",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 35.0, 341.0, 129.0, 18.0 ],
-													"style" : "",
-													"text" : "Audio output busses"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"fontname" : "Arial Bold",
-													"fontsize" : 10.0,
 													"id" : "obj-2",
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 35.0, 307.0, 129.0, 18.0 ],
+													"patching_rect" : [ 35.0, 333.0, 129.0, 18.0 ],
 													"style" : "",
-													"text" : "Audio input busses"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"fontname" : "Arial",
-													"fontsize" : 9.0,
-													"id" : "obj-73",
-													"maxclass" : "comment",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 578.0, 485.0, 17.0 ],
-													"style" : "",
-													"text" : "[1/0] Set the module window's \"floating\" status (off by default)"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"fontname" : "Arial",
-													"fontsize" : 9.0,
-													"id" : "obj-74",
-													"maxclass" : "comment",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 563.0, 485.0, 17.0 ],
-													"style" : "",
-													"text" : "[1/0] show/hide the module's window"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"fontname" : "Arial",
-													"fontsize" : 9.0,
-													"id" : "obj-75",
-													"linecount" : 3,
-													"maxclass" : "comment",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 108.0, 595.0, 485.0, 37.0 ],
-													"style" : "",
-													"text" : "[pixel coordinates: h v w h] Set the screen coordinates for the mod window. If only one number given, the horizonatal location is set with default window dimensions. A second value specifies the vertical pixel coordinate. A third value specifies a window height. If a fourth value is given, it specifies window height and the third value specifies width."
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"fontname" : "Arial Bold",
-													"fontsize" : 9.0,
-													"id" : "obj-82",
-													"maxclass" : "comment",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 578.0, 54.0, 17.0 ],
-													"style" : "",
-													"text" : "floating"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"fontname" : "Arial Bold",
-													"fontsize" : 9.0,
-													"id" : "obj-83",
-													"maxclass" : "comment",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 563.0, 54.0, 17.0 ],
-													"style" : "",
-													"text" : "show"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"fontname" : "Arial Bold",
-													"fontsize" : 9.0,
-													"id" : "obj-84",
-													"maxclass" : "comment",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 53.0, 595.0, 54.0, 17.0 ],
-													"style" : "",
-													"text" : "window"
-												}
-
-											}
-, 											{
-												"box" : 												{
-													"fontname" : "Arial Bold",
-													"fontsize" : 10.0,
-													"id" : "obj-85",
-													"maxclass" : "comment",
-													"numinlets" : 1,
-													"numoutlets" : 0,
-													"patching_rect" : [ 35.0, 545.0, 129.0, 18.0 ],
-													"style" : "",
-													"text" : "Utilities"
+													"text" : "Audio busses"
 												}
 
 											}
@@ -4164,7 +4196,6 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 434.826477, 20.672089, 473.0, 19.0 ],
 					"style" : "",
-					"text" : "audio::in~::1 barf audio::in~::2 foobar parameters::time 256",
 					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 
@@ -8116,7 +8147,7 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 69.349442, 85.289474, 83.0, 19.0 ],
 					"style" : "",
-					"text" : "barf",
+					"text" : "<n/a>",
 					"textcolor" : [ 0.0, 0.0, 0.0, 1.0 ]
 				}
 
@@ -9314,7 +9345,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 495.277222, 148.441864, 33.0, 19.0 ],
+					"patching_rect" : [ 495.277222, 152.441864, 33.0, 19.0 ],
 					"style" : "",
 					"text" : "$1 20"
 				}
@@ -9329,7 +9360,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "bang" ],
-					"patching_rect" : [ 495.277222, 166.441864, 30.0, 19.0 ],
+					"patching_rect" : [ 495.277222, 175.441864, 30.0, 19.0 ],
 					"style" : "",
 					"text" : "line~"
 				}
