@@ -200,7 +200,101 @@
 		}]
 	},
 	"sequences": {
-		"soundcheck": [{}, {}, {}],
+		"testDelay": [
+		{
+			"comments": "Event 0 - parameters for delayTest module",
+			"modules": [
+			{
+				"comments": "initialize the module",
+				"name": "delayTest",
+				"parameters": {
+					"time": 512,
+					"fb" : 0.5,
+					"depth" : 1,
+					"LFO" : 0.2,
+					"trim" : 127,
+					"gain" : 127
+				},
+				"audio" : {
+					"in~" : {
+						"1" : "ADC[1]"
+					},
+					"out~" : {
+						"wet" : "Delay~"
+					}
+				},
+				"control" : {
+					"ctlin" : {
+						"hold" : "pedal1",
+						"bypass" : "pedal2"
+					}
+				}
+			}
+			]
+		}, 		
+		{
+			"comments": "Event 1 - parameters for delayTest module",
+			"modules": [
+			{
+				"comments": "change values for delay",
+				"name": "delayTest",
+				"parameters": {
+					"time": 1024,
+					"fb" : 0.8,
+					"depth" : 0,
+					"LFO" : 0.1,
+					"trim" : 100,
+					"gain" : 100
+				},
+				"audio" : {
+					"in~" : {
+						"1" : "ADC[2]"
+					},
+					"out~" : {
+						"wet" : "Delay~"
+					}
+				},
+				"control" : {
+					"ctlin" : {
+						"hold" : "button1",
+						"bypass" : "button2"
+					}
+				}
+			}
+			]
+		}, 		
+		{
+			"comments": "Event 2 - parameters for delayTest module",
+			"modules": [
+			{
+				"comments": "change values for delay",
+				"name": "delayTest",
+				"parameters": {
+					"time": 1024,
+					"fb" : 0.4,
+					"depth" : 2,
+					"LFO" : 0.1,
+					"trim" : 64,
+					"gain" : 64
+				},
+				"audio" : {
+					"in~" : {
+						"1" : "ADC[3]"
+					},
+					"out~" : {
+						"wet" : "Delay~"
+					}
+				},
+				"control" : {
+					"ctlin" : {
+						"hold" : "button3",
+						"bypass" : "button4"
+					}
+				}
+			}
+			]
+		}
+		],
 		"performance": [
 		{
 			"comments": "Event 0 - pre-performance",

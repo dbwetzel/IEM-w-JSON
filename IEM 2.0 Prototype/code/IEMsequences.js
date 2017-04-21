@@ -16,7 +16,7 @@ function bang()
 	
 }
 
-function play(seq){
+function sequence(seq){
 	// find the named sequence in the list from the top level keys
 	// if there is a match between the args and an element in the list
 	// 	populate the "eventList" dictionary with its contents
@@ -63,7 +63,7 @@ Array.prototype.contains = function ( needle ) {
 // events at the given index are distributed to the relevant module dictionaries
 //if there is a named Dict in Max that matches a mod name in an event, it's contents will reflect the event
 
-function sequence(list, event){
+function play(list, event){
 	
 	if(event < 0){
 		error("negative sequence event number not allowed [" + event + "]\n");
@@ -117,9 +117,25 @@ function sequence(list, event){
 						var paramString = JSON.stringify(paramObj);
 						post(paramString);
 						post();
-						// parse the parameter list to a Dict with the same mod name
-						var paramDict = new Dict(modObj.name);
-						paramDict.parse(paramString);
+					
+						// send a stringified event to a module's receive
+						var send = "";
+						if(modObj.name == null){
+							error("no name field for this module!");
+							return;
+						}
+						else {
+							send = modObj.name;
+						}
+						var modEventString = JSON.stringify(modObj);
+						post("Send to: " + send);
+						post();
+						post("mod Event: " + modEventString);
+						post();
+
+						messnamed(send, modEventString); //send to a named Max receive object
+					
+					
 						
 					}
 				}

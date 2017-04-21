@@ -92,6 +92,7 @@
 						"tags" : "",
 						"style" : "",
 						"subpatcher_template" : "",
+						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-20",
@@ -2736,7 +2737,6 @@
 													"numinlets" : 1,
 													"numoutlets" : 0,
 													"patching_rect" : [ 44.5, 493.0, 45.0, 17.0 ],
-													"presentation_rect" : [ 45.0, 494.0, 0.0, 0.0 ],
 													"style" : "",
 													"text" : "ctlin"
 												}
@@ -2751,7 +2751,6 @@
 													"numinlets" : 1,
 													"numoutlets" : 0,
 													"patching_rect" : [ 65.0, 423.0, 45.0, 17.0 ],
-													"presentation_rect" : [ 65.0, 428.0, 0.0, 0.0 ],
 													"style" : "",
 													"text" : "wet"
 												}
@@ -2766,7 +2765,6 @@
 													"numinlets" : 1,
 													"numoutlets" : 0,
 													"patching_rect" : [ 65.0, 366.0, 28.0, 17.0 ],
-													"presentation_rect" : [ 81.0, 372.0, 0.0, 0.0 ],
 													"style" : "",
 													"text" : "1"
 												}
