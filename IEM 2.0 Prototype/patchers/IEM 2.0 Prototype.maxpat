@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 45.0, 78.0, 1084.0, 784.0 ],
+		"rect" : [ 45.0, 78.0, 947.0, 784.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,12 +39,47 @@
 		"showontab" : 1,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-38",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 533.0, 34.0, 756.0, 20.0 ],
+					"style" : "",
+					"text" : "This is the bpatcher that will contain the \"rack\" of module interfaces.  The abstraction loaded here is \"newmod.2.2\""
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
+					"bgmode" : 1,
+					"border" : 0,
+					"clickthrough" : 0,
+					"enablehscroll" : 0,
+					"enablevscroll" : 1,
+					"id" : "obj-177",
+					"lockeddragscroll" : 1,
+					"maxclass" : "bpatcher",
+					"name" : "newmod.2.2.maxpat",
+					"numinlets" : 3,
+					"numoutlets" : 1,
+					"offset" : [ 1.0, 1.0 ],
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 533.0, 56.0, 763.0, 470.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 416.0, 32.0, 966.0, 756.0 ],
+					"viewvisibility" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-36",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 555.0, 342.0, 88.0, 22.0 ],
+					"patching_rect" : [ 46.0, 412.0, 88.0, 22.0 ],
 					"style" : "",
 					"text" : "prepend parse"
 				}
@@ -57,7 +92,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 555.0, 371.0, 88.0, 22.0 ],
+					"patching_rect" : [ 46.0, 441.0, 88.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"filename" : "modParse.js",
 						"parameter_enable" : 0
@@ -75,7 +110,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 555.0, 314.0, 44.0, 22.0 ],
+					"patching_rect" : [ 46.0, 384.0, 44.0, 22.0 ],
 					"style" : "",
 					"text" : "r main"
 				}
@@ -97,7 +132,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 84.0, 128.0, 640.0, 480.0 ],
+						"rect" : [ 0.0, 26.0, 947.0, 758.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -125,7 +160,6 @@
 						"style" : "",
 						"subpatcher_template" : "",
 						"showontab" : 1,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-3",
@@ -253,7 +287,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 0.0, 26.0, 1084.0, 758.0 ],
+						"rect" : [ 0.0, 26.0, 947.0, 758.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1768,7 +1802,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 0.0, 26.0, 1084.0, 758.0 ],
+						"rect" : [ 0.0, 26.0, 947.0, 758.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 12.0,
@@ -2522,7 +2556,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 0.0, 26.0, 1084.0, 758.0 ],
+						"rect" : [ 0.0, 26.0, 947.0, 758.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -3687,6 +3721,24 @@
 , 			{
 				"name" : "jsui_wallclock.js",
 				"bootpath" : "C74:/jsui",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "newmod.2.2.maxpat",
+				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/patchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "newmodule.js",
+				"bootpath" : "/Volumes/DB Wetzel/Users/davidwetzel/Documents/MaxMSP/IEM/Modules/abstractions & scripts",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "newMod.js",
+				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/code",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
