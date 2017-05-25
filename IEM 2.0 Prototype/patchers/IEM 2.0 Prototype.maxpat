@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 45.0, 78.0, 947.0, 784.0 ],
+		"rect" : [ 45.0, 78.0, 851.0, 784.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -68,6 +68,7 @@
 					"patching_rect" : [ 533.0, 56.0, 763.0, 470.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 416.0, 32.0, 966.0, 756.0 ],
+					"varname" : "newmod.2.2",
 					"viewvisibility" : 1
 				}
 
@@ -132,7 +133,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 0.0, 26.0, 947.0, 758.0 ],
+						"rect" : [ 0.0, 26.0, 851.0, 758.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -287,7 +288,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 0.0, 26.0, 947.0, 758.0 ],
+						"rect" : [ 0.0, 26.0, 851.0, 758.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1802,7 +1803,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 0.0, 26.0, 947.0, 758.0 ],
+						"rect" : [ 0.0, 26.0, 851.0, 758.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 12.0,
@@ -2556,7 +2557,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 0.0, 26.0, 947.0, 758.0 ],
+						"rect" : [ 0.0, 26.0, 851.0, 758.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -3534,7 +3535,8 @@
 					"numinlets" : 0,
 					"numoutlets" : 0,
 					"offset" : [ 0.0, 0.0 ],
-					"patching_rect" : [ 46.0, 512.0, 951.0, 179.0 ],
+					"patching_rect" : [ 35.0, 546.0, 951.0, 179.0 ],
+					"varname" : "delayJSON.iem",
 					"viewvisibility" : 1
 				}
 
@@ -3692,6 +3694,18 @@
 				"name" : "modParse.js",
 				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/code",
 				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "ramp.maxpat",
+				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/patchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "polyramp.maxpat",
+				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/patchers",
+				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{

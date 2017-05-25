@@ -2,8 +2,8 @@
 	"name" : "IEM 2.0 Prototype",
 	"version" : 1,
 	"creationdate" : -721952850,
-	"modificationdate" : -719567800,
-	"viewrect" : [ 50.0, 94.0, 300.0, 500.0 ],
+	"modificationdate" : -718271170,
+	"viewrect" : [ 50.0, 44.0, 300.0, 500.0 ],
 	"autoorganize" : 1,
 	"hideprojectwindow" : 0,
 	"showdependencies" : 1,
@@ -22,6 +22,11 @@
 			}
 ,
 			"delayJSON.iem.maxpat" : 			{
+				"kind" : "patcher",
+				"local" : 1
+			}
+,
+			"newmod.2.2.maxpat" : 			{
 				"kind" : "patcher",
 				"local" : 1
 			}
@@ -45,6 +50,11 @@
 			}
 ,
 			"modParse.js" : 			{
+				"kind" : "javascript",
+				"local" : 1
+			}
+,
+			"newMod.js" : 			{
 				"kind" : "javascript",
 				"local" : 1
 			}

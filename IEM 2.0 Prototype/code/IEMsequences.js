@@ -71,7 +71,7 @@ function play(list, event){
 	}
 	
 	//create a new dict tied to the loaded EL
-	var IEMdict = new Dict("eventlist"); 
+	var IEMdict = new Dict("EventScript"); 
 	var IEMobj = JSON.parse(IEMdict.stringify()); //convert to JS Obj
 	//js objects handle nested arrays better than Dict in Max
 	

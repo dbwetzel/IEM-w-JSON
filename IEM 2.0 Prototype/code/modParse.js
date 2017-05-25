@@ -31,33 +31,63 @@ function parse(mod){
 	// convert the dictionary into JS object
 	var dictObj = JSON.parse(modDict.stringify());
 		
-	if(typeof obj.parameters == 'object'){
+	if(typeof obj.parameters == 'object'){ // if a "parameters" object is part of the mod event
 		post("Parameters:\n ");
-		var params = obj.parameters;
-		var keys = Object.keys(params);
-		for(var i = 0; i < keys.length; i ++){
+		var params = obj.parameters; // grab the object
+		var keys = Object.keys(params); // get the top keys
+		for(var i = 0; i < keys.length; i ++){ // cycle through the top keys
 			var key = keys[i]
-			var val = params[key];
+			var val = params[key]; // get the value for each key
 			if(typeof val == 'object'){
-				//if the value is an object
 				var valKeys = Object.keys(val);
-//				var valIndex;
-				for(var j = 0; j < valKeys.length; j++){
-					var valIndex = valKeys[j];
-					var subKey = key + "[" + valKeys[j] + "]";
-					var valItems = params[key][valIndex];
-					post(subKey + ": ");
-					post(valItems);
-					post();
-					// update the module instance dictionary
-					if(valIndex in dictObj.parameters[key]){
- 						dictObj.parameters[key][valIndex] = valItems;
+				//if the value is an object there are several possibilities
+				// 1. delx
+				// 2. ramp
+				// 3. envelope
+				// 4. sub values				
+				switch(valKeys[0]){
+					case "delx":
+						post(key + ": delx!\n");
+						break;
+					case "ramp":
+//						post(key + ": ramp!\n");
+						var line = [key]; // start an array with the name of the ramp destination
+						if (val.ramp.hasOwnProperty("start")){
+							line.push(val.ramp.start);
+						}
+						if (val.ramp.hasOwnProperty("target")){
+							line.push(val.ramp.target);
+						}				
+						if (val.ramp.hasOwnProperty("time")){
+							line.push(val.ramp.time);
+						}
+		
+						if(this.patcher.getnamed("ramp")){
+							this.patcher.getnamed("ramp").message(line);
+						}
+
+						break;
+					case "envelope":
+						post(key + ": envelope!\n");
+						break;
+					default: // sub value (e.g. fader[1])
+						for(var j = 0; j < valKeys.length; j++){
+							var valIndex = valKeys[j];
+							var subKey = key + "[" + valKeys[j] + "]";
+							var valItems = params[key][valIndex];
+							post(subKey + ": ");
+							post(valItems);
+							post();
+							// update the module instance dictionary
+							if(valIndex in dictObj.parameters[key]){
+								dictObj.parameters[key][valIndex] = valItems;
+							}
+							// update an object in the patcher
+							if(this.patcher.getnamed(subKey)){
+								this.patcher.getnamed(subKey).message(valItems);
+							}
+						}
 					}
-					// update an object in the patcher
-					if(this.patcher.getnamed(subKey)){
-						this.patcher.getnamed(subKey).message(valItems);
-					}
-				}
 			} 
 			else{
 				post(key + ": " + val);
@@ -220,3 +250,41 @@ function mergeDict(obj, modName){
 	
 	
 	}
+	
+function ramp(){
+	
+	var trimObj = {"trim" : {
+					"ramp": {
+						"start" : 0, 
+						"target" : 120, 
+						"time" : 1000
+						}
+					}
+				};
+	var destination = Object.keys(trimObj);
+	var dest = destination[0]; //"trim"
+
+	if (typeof trimObj[dest] == 'object'){
+		var line = [dest]; 
+		var method = Object.keys(trimObj[dest]); 
+		var meth = method[0];
+		switch(meth){
+			case "ramp" : 
+				post(Object.keys(trimObj[dest][meth]));
+				post();
+				if (trimObj[dest].ramp.hasOwnProperty("start")){
+					line.push(trimObj[dest][meth].start);
+				}
+				if (trimObj[dest].ramp.hasOwnProperty("target")){
+					line.push(trimObj[dest][meth].target);
+				}				
+				if (trimObj[dest].ramp.hasOwnProperty("time")){
+					line.push(trimObj[dest][meth].time);
+				}
+
+				if(this.patcher.getnamed("ramp")){
+					this.patcher.getnamed("ramp").message(line);
+				}
+		}
+	}
+}

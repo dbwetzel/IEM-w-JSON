@@ -212,7 +212,7 @@
 					"fb" : 0.5,
 					"depth" : 1,
 					"LFO" : 0.2,
-					"trim" : 127,
+					"trim" : {"ramp" : {"start" : 0, "target" : 127, "time" : 1000}},
 					"gain" : 127
 				},
 				"audio" : {
@@ -242,9 +242,9 @@
 					"time": 1024,
 					"fb" : 0.8,
 					"depth" : 0,
-					"LFO" : 0.1,
-					"trim" : 100,
-					"gain" : 100
+					"LFO" : {"delx": {"time" : 1000, "value" : 0.1}},
+					"trim" : {"ramp": {"start" : 0, "target" : 100, "time" : 1000}},
+					"gain" : {"delx" : {"time" : 2000, "ramp" : {"target" : 100, "time": 1000}}}
 				},
 				"audio" : {
 					"in~" : {
@@ -274,8 +274,16 @@
 					"fb" : 0.4,
 					"depth" : 2,
 					"LFO" : 0.1,
-					"trim" : 64,
-					"gain" : 64
+					"trim" : {"ramp" : {"target" : 20, "time" : 2000}},
+					"gain" : {"envelope" : {
+									"start" : 0, 
+									"a" : {"target" : 100, "time" : 1000},
+									"b" : {"target" : 50, "time" : 1000}, 
+									"c" : {"target" : 127, "time" : 1000}, 
+									"d" : {"target" : 30, "time" : 1000}, 
+									"e" : {"target" : 0, "time" : 1000} 
+									}
+							}
 				},
 				"audio" : {
 					"in~" : {
