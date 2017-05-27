@@ -123,7 +123,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 71.0, 334.0, 50.0, 22.0 ],
 					"style" : "",
-					"text" : "0."
+					"text" : "0"
 				}
 
 			}
@@ -155,7 +155,7 @@
 ,
 					"style" : "",
 					"text" : "pattr",
-					"varname" : "u726000549"
+					"varname" : "u134008106"
 				}
 
 			}
@@ -244,9 +244,9 @@
 					"numinlets" : 3,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 56.0, 369.0, 40.0, 22.0 ],
+					"patching_rect" : [ 56.0, 369.0, 43.0, 22.0 ],
 					"style" : "",
-					"text" : "line 0"
+					"text" : "line 0."
 				}
 
 			}
@@ -284,6 +284,10 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 56.0, 40.0, 30.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"style" : "",
 					"text" : "in 1"
 				}

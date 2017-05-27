@@ -208,8 +208,8 @@
 				"comments": "initialize the module",
 				"name": "delayTest",
 				"parameters": {
-					"time": 512,
-					"fb" : 0.5,
+					"time": {"ramp" : {"start" : 0, "target" : 512, "time" : 1000}},
+					"fb" : {"ramp" : {"start" : 0., "target": 0.5, "time" : 2000}},
 					"depth" : 1,
 					"LFO" : 0.2,
 					"trim" : {"ramp" : {"start" : 0, "target" : 127, "time" : 1000}},
@@ -240,6 +240,12 @@
 				"name": "delayTest",
 				"parameters": {
 					"time": 1024,
+					"fader" : {
+						"1" : 127,
+						"2" : 0,
+						"3" : 64,
+						"4" : 72
+					},
 					"fb" : 0.8,
 					"depth" : 0,
 					"LFO" : {"delx": {"time" : 1000, "value" : 0.1}},
@@ -273,7 +279,7 @@
 					"time": 1024,
 					"fb" : 0.4,
 					"depth" : 2,
-					"LFO" : 0.1,
+					"LFO" : {"ramp" : {"target" : 1.0, "time" : 1000}},
 					"trim" : {"ramp" : {"target" : 20, "time" : 2000}},
 					"gain" : {"envelope" : {
 									"start" : 0, 
