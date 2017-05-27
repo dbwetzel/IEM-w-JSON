@@ -208,14 +208,6 @@ function parseParam(key, val){
 	// 	or val = {"ramp" : {"start": 0, "target": 127, "time" : 1000}}
 
 	if(typeof val == 'object'){
-		post("for key " + key + ", val is an object\n")
-	}
-	else {
-		post("for key " + key + ", val = " + val + "\n")
-	}
-
-
-	if(typeof val == 'object'){
 		var valKeys = Object.keys(val);
 		//if the value is an object there are several possibilities
 		// 1. delx
@@ -225,21 +217,21 @@ function parseParam(key, val){
 		switch(valKeys[0]){
 			case "delx": // use the Max JS Task object instead of setTimeout()
 				var str =  key + ": delx ";
-				var del = 5000;
+
 				if(val.delx.hasOwnProperty("time")){
 					str = str + val.delx.time;
-					del = val.delx.time;
+					var del = val.delx.time;
 				}
 				
 				if(val.delx.hasOwnProperty("value")){
 					str = str + " value = " + val.delx.value;
-				//	var tsk = new Task(parseParam, this, key, val.delx.value);
+					var tsk = new Task(parseParam, this, key, val.delx.value);
+					tsk.schedule(del);
 				}
-				str += "\n";
-				var tsk = new Task(post, this, str);
-				tsk.schedule(del);
+				
 			//	post(key + ": delx!\n");
 				break;
+
 			case "ramp":
 //						post(key + ": ramp!\n");
 				var line = [key]; // start an array with the name of the ramp destination
