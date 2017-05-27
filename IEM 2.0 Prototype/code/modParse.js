@@ -265,18 +265,15 @@ function parseParam(key, val){
 				// sub value e.g. "fader" : {"1" : 127, "2" : 0}
 				for(var j = 0; j < valKeys.length; j++){
 					var valIndex = valKeys[j];
-					var subKey = key + "[" + valKeys[j] + "]"; // "trim[1]"
+					var subKey = key + "[" + valKeys[j] + "]"; // e.g. "trim[1]"
 					var valItems = val[valIndex];
 					post(subKey + ": ");
 					post(valItems);
 					post();
 					
-				//	parseParam(subKey, valItems);
+					parseParam(subKey, valItems); // try out some recursion ...
+					// send it back through for parsing as either value or ramp
 
-					// update an object in the patcher
-					if(this.patcher.getnamed(subKey)){
-						this.patcher.getnamed(subKey).message(valItems);
-					}
 				}
 			} // end switch
 	} // end if(typeof val == 'object') 
