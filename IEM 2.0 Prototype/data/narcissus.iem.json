@@ -209,6 +209,12 @@
 				"name": "delayTest",
 				"parameters": {
 					"time": {"ramp" : {"start" : 0, "target" : 512, "time" : 1000}},
+					"fader" : {
+						"1" : {"delx" : {"time" : 1000, "value" : {"ramp" : {"start" : 127, "target" : 0, "time" : 1000}}}},
+						"2" : {"ramp" : {"start" : 0, "target" : 127, "time" : 2000}},
+						"3" : 0,
+						"4" : 127
+					},
 					"fb" : {"ramp" : {"start" : 0., "target": 0.5, "time" : 2000}},
 					"depth" : 1,
 					"LFO" : 0.2,
