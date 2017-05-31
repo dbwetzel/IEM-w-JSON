@@ -210,39 +210,52 @@ function parseParam(key, val){
 	if(typeof val == 'object'){
 		var valKeys = Object.keys(val);
 		//if the value is an object there are several possibilities
-		// 1. delx
-		// 2. ramp
-		// 3. envelope
-		// 4. sub values (dafault)				
+		// 1. delx - delay execution by x msec
+		// 2. ramp - trigger a gradual ramp from one value to another or to a target value over x msec
+		// 3. envelope - trigger multi-segment ramp
+		// 4. sub parameter (dafault) - e.g. "pan" : {"1" : 0, "2" : 127, "3" : 0, "4" : 127} 
+		// if the value of a sub parameter or delx is an object, parseParam is called recursively
+		
 		switch(valKeys[0]){
 			case "delx": // use the Max JS Task object instead of setTimeout()
-				var str =  key + ": delx ";
 
-				if(val.delx.hasOwnProperty("time")){
-					str = str + val.delx.time;
+				if(val.delx.hasOwnProperty("time") && val.delx.hasOwnProperty("value")){
 					var del = val.delx.time;
-				}
-				
-				if(val.delx.hasOwnProperty("value")){
-					str = str + " value = " + val.delx.value;
 					var tsk = new Task(parseParam, this, key, val.delx.value);
+					// "value" might contain an object. send it to parsePAram again to sort it out ...
 					tsk.schedule(del);
 				}
-				
-			//	post(key + ": delx!\n");
 				break;
 
 			case "ramp":
 //						post(key + ": ramp!\n");
 				var line = [key]; // start an array with the name of the ramp destination
 				if (val.ramp.hasOwnProperty("start")){
+				//	line.push("start");
 					line.push(val.ramp.start);
 				}
 				if (val.ramp.hasOwnProperty("target")){
+				//	line.push("target");
 					line.push(val.ramp.target);
 				}				
 				if (val.ramp.hasOwnProperty("time")){
+				//	line.push("time");
 					line.push(val.ramp.time);
+				}
+				
+				if (val.ramp.hasOwnProperty("exp")){
+				//	line.push("exp");
+					line.push(val.ramp.exp);
+				}
+
+				if (val.ramp.hasOwnProperty("trigger")){
+				//	"trigger" contains an object : {"value" : "", "source" : ""}
+					
+
+				}
+				if (val.ramp.hasOwnProperty("segments")){ // multiple line segments
+				//	value will be an object
+					
 				}
 
 				if(this.patcher.getnamed("ramp")){
@@ -251,7 +264,7 @@ function parseParam(key, val){
 
 				break;
 			case "envelope":
-				post(key + ": envelope!\n");
+				post(key + ": envelope! -- stil working on this ...\n");
 				break;
 			default: 
 				// sub value e.g. "fader" : {"1" : 127, "2" : 0}

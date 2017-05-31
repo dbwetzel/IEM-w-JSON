@@ -291,14 +291,19 @@
 					"depth" : 2,
 					"LFO" : {"ramp" : {"target" : 1.0, "time" : 1000}},
 					"trim" : {"ramp" : {"target" : 20, "time" : 2000}},
-					"gain" : {"envelope" : {
+					"gain" : {"ramp" : {
 									"start" : 0, 
-									"a" : {"target" : 100, "time" : 1000},
-									"b" : {"target" : 50, "time" : 1000}, 
-									"c" : {"target" : 127, "time" : 1000}, 
-									"d" : {"target" : 30, "time" : 1000}, 
-									"e" : {"target" : 0, "time" : 1000} 
-									}
+									"target" : 127,
+									"time" : 1000,
+									"trigger" : {"value" : 127, "source" : "footswitch1"},
+									"segments" : [
+										{"target" : 100, "time" : 1000},
+										{"target" : 50, "time" : 1000, "sustain" : {"delay" : 1000}},
+										{"target" : 127, "time" : 1000, "sustain" : {"match" : 127, "source" : "footswitch1"}}, 
+										{"target" : 30, "time" : 1000}, 
+										{"target" : 0, "time" : 1000} 
+									]
+								}
 							}
 				},
 				"audio" : {
