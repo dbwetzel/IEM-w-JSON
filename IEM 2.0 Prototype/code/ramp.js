@@ -47,7 +47,7 @@ function complex (){
 					{"target" : 50, "time" : 1000, "delay" : 1000}, //delay segment by 1000 ms
 					{"target" : 127, "time" : 1000, "delay" : 1000, "trigger" : {"match" : 127, "source" : "fs1"}}, 
 					{"target" : 30, "time" : 1000}, 
-					{"target" : 0, "time" : 1000, "delay" : 2000} 
+					{"target" : 0, "time" : 4000, "delay" : 2000} 
 				]
 			};
 
@@ -69,8 +69,8 @@ function ramp(str){
 		// add these to the list in the coll file
 		if(obj.segments.length){ // make sure the array exists
 			for(var i = 0; i < obj.segments.length; i++){
-				post("segment: " + i);
-				post();
+			//	post("segment: " + i);
+			//	post();
 					
 				var lineSegment = [i, "name", obj.name];
 				var segObj = obj.segments[i];

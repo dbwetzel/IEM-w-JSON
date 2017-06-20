@@ -69,9 +69,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 712.0, 301.0, 133.0, 22.0 ],
+					"patching_rect" : [ 712.0, 301.0, 174.0, 22.0 ],
 					"style" : "",
-					"text" : "sprintf send parent::%s"
+					"text" : "sprintf send parent::parent::%s"
 				}
 
 			}
@@ -109,9 +109,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 738.0, 171.0, 140.0, 22.0 ],
+					"patching_rect" : [ 738.0, 171.0, 181.0, 22.0 ],
 					"style" : "",
-					"text" : "sprintf bindto parent::%s"
+					"text" : "sprintf bindto parent::parent::%s"
 				}
 
 			}
@@ -130,7 +130,7 @@
 ,
 					"style" : "",
 					"text" : "pattr",
-					"varname" : "u873002328"
+					"varname" : "u733005103"
 				}
 
 			}
@@ -141,7 +141,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 730.5, 351.0, 109.0, 47.0 ],
+					"patching_rect" : [ 592.5, 374.0, 109.0, 47.0 ],
 					"style" : "",
 					"text" : "add \"non-classic\" (non-IRCAM) exponential curve"
 				}
@@ -254,6 +254,10 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 536.0, 18.0, 30.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"style" : "",
 					"text" : "in 1"
 				}
@@ -305,6 +309,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 483.0, 448.0, 37.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"style" : "",
 					"text" : "out 1"
 				}
@@ -429,7 +437,7 @@
 ,
 					"style" : "",
 					"text" : "pattr",
-					"varname" : "u542002345"
+					"varname" : "u074005008"
 				}
 
 			}
@@ -558,10 +566,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 56.0, 4.0, 30.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"style" : "",
 					"text" : "in 1"
 				}

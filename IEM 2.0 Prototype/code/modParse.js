@@ -228,8 +228,17 @@ function parseParam(key, val){
 				break;
 
 			case "ramp":
-//						post(key + ": ramp!\n");
-				var line = [key]; // start an array with the name of the ramp destination
+//				post(key + ": ramp!\n");
+				
+				var rampObj = val.ramp; // make a copy of the ramp object
+				rampObj.name = key; // add the ramped parameter as a "name" field
+
+				// send a stringified object to the ramp abstraction
+				if(this.patcher.getnamed("ramp")){
+					this.patcher.getnamed("ramp").message(JSON.stringify(rampObj));
+				}
+
+/*				var line = [key]; // start an array with the name of the ramp destination
 				if (val.ramp.hasOwnProperty("start")){
 				//	line.push("start");
 					line.push(val.ramp.start);
@@ -259,9 +268,9 @@ function parseParam(key, val){
 				}
 
 				if(this.patcher.getnamed("ramp")){
-					this.patcher.getnamed("ramp").message(line);
+					this.patcher.getnamed("ramp").message(rampStr);
 				}
-
+*/
 				break;
 			case "envelope":
 				post(key + ": envelope! -- stil working on this ...\n");
