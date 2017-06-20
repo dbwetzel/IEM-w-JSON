@@ -295,11 +295,12 @@
 									"start" : 0, 
 									"target" : 127,
 									"time" : 1000,
+									"delay" : 1000,
 									"trigger" : {"value" : 127, "source" : "footswitch1"},
 									"segments" : [
 										{"target" : 100, "time" : 1000},
-										{"target" : 50, "time" : 1000, "sustain" : {"delay" : 1000}},
-										{"target" : 127, "time" : 1000, "sustain" : {"match" : 127, "source" : "footswitch1"}}, 
+										{"target" : 50, "time" : 1000, "delay" : 1000},
+										{"target" : 127, "time" : 1000, "match" : 127, "source" : "footswitch1"}, 
 										{"target" : 30, "time" : 1000}, 
 										{"target" : 0, "time" : 1000} 
 									]

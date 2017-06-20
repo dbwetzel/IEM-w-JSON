@@ -81,9 +81,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 79.0, 209.0, 109.0, 22.0 ],
+					"patching_rect" : [ 79.0, 209.0, 101.0, 22.0 ],
 					"style" : "",
-					"text" : "poly~ polyramp 16",
+					"text" : "poly~ polyenv 16",
 					"varname" : "poly~"
 				}
 
@@ -154,7 +154,7 @@
 			}
  ],
 		"dependency_cache" : [ 			{
-				"name" : "polyramp.maxpat",
+				"name" : "polyenv.maxpat",
 				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/patchers",
 				"type" : "JSON",
 				"implicit" : 1
