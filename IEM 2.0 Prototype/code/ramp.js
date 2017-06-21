@@ -47,7 +47,7 @@ function complex (){
 					{"target" : 50, "time" : 1000, "delay" : 1000}, //delay segment by 1000 ms
 					{"target" : 127, "time" : 1000, "delay" : 1000, "trigger" : {"match" : 127, "source" : "fs1"}}, 
 					{"target" : 30, "time" : 1000}, 
-					{"target" : 0, "time" : 4000, "delay" : 2000} 
+					{"target" : 0, "time" : 4000, "exp" : 1.5, "delay" : 2000} 
 				]
 			};
 

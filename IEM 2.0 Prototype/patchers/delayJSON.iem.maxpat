@@ -201,9 +201,9 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 663.277222, 544.284973, 31.0, 19.0 ],
+					"patching_rect" : [ 663.277222, 544.284973, 44.0, 19.0 ],
 					"style" : "",
-					"text" : "ramp",
+					"text" : "ramp 20",
 					"varname" : "ramp[1]"
 				}
 
@@ -6397,7 +6397,7 @@
 ,
 					"style" : "",
 					"text" : "pattrstorage",
-					"varname" : "u789002172"
+					"varname" : "u626005702"
 				}
 
 			}
@@ -6467,7 +6467,7 @@
 ,
 					"style" : "",
 					"text" : "autopattr",
-					"varname" : "u142002191"
+					"varname" : "u781005769"
 				}
 
 			}
@@ -8036,6 +8036,12 @@
 				"name" : "polyramp.maxpat",
 				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/patchers",
 				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "ramp.js",
+				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/code",
+				"type" : "TEXT",
 				"implicit" : 1
 			}
  ],
