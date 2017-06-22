@@ -247,8 +247,14 @@
 				"parameters": {
 					"time": 1024,
 					"fader" : {
-						"1" : {"ramp" : {"start" : 0, "target" : 127, "time" : 1000}},
-						"2" : {"ramp" : {"target" : 100, "time" : 2000}},
+						"1" : {"ramp" : {
+									
+									"start" : 0, 
+									"target" : 127, 
+									"time" : 1000
+									}
+								},
+						"2" : {"ramp" : {"delay" : 2000, "start" : 0, "target" : 100, "time" : 2000}},
 						"3" : 64,
 						"4" : 72
 					},
@@ -258,7 +264,7 @@
 					"trim" : {"ramp": {"start" : 0, "target" : 100, "time" : 1000}},
 					"gain" : {"delx" : {
 								"time" : 2000, 
-								"value" : {"ramp" : {"target" : 100, "time": 1000}}
+								"value" : {"ramp" : {"start" : 0, "target" : 100, "time": 1000}}
 								}
 							}
 				},
@@ -287,10 +293,10 @@
 				"name": "delayTest",
 				"parameters": {
 					"time": 1024,
-					"fb" : 0.4,
+					"fb" : {"ramp" : {"start" : 0, "target" : 0.9, "time" : 4000}},
 					"depth" : 2,
-					"LFO" : {"ramp" : {"target" : 1.0, "time" : 1000}},
-					"trim" : {"ramp" : {"target" : 20, "time" : 2000}},
+					"LFO" : {"ramp" : {"start" : 0, "target" : 1.0, "time" : 4000}},
+					"trim" : {"ramp" : {"start" : 0, "target" : 120, "time" : 4000}},
 					"gain" : {"ramp" : {
 									"start" : 0, 
 									"target" : 127,
@@ -323,7 +329,34 @@
 				}
 			}
 			]
+		},
+		{
+			"comments": "Event 3 - parameters for delayTest module",
+			"modules": [
+			{
+				"comments": "change values for delay",
+				"name": "delayTest",
+				"parameters": {
+					"gain" : {"ramp" : {
+									"start" : 0, 
+									"target" : 127,
+									"time" : 1000,
+									"delay" : 1000,
+									"trigger" : {"match" : 127, "source" : "fs1"},
+									"segments" : [
+										{"target" : 100, "time" : 1000},
+										{"target" : 50, "time" : 1000, "delay" : 1000},
+										{"target" : 127, "time" : 1000, "trigger" : {"match" : 127, "source" : "fs1"}}, 
+										{"target" : 30, "time" : 1000}, 
+										{"target" : 0, "time" : 1000, "delay" : 2000} 
+									]
+								}
+							}
+				}
+			}
+			]
 		}
+		
 		],
 		"performance": [
 		{

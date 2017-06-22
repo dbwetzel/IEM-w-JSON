@@ -202,6 +202,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 663.277222, 544.284973, 44.0, 19.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 615.409912, 157.0, 44.0, 19.0 ],
 					"style" : "",
 					"text" : "ramp 20",
 					"varname" : "ramp[1]"
@@ -215,9 +217,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 663.277222, 521.284973, 44.0, 19.0 ],
+					"patching_rect" : [ 663.277222, 521.284973, 67.0, 19.0 ],
 					"style" : "",
-					"text" : "prepend",
+					"text" : "prepend ramp",
 					"varname" : "ramp"
 				}
 
@@ -6397,7 +6399,7 @@
 ,
 					"style" : "",
 					"text" : "pattrstorage",
-					"varname" : "u626005702"
+					"varname" : "u626021427"
 				}
 
 			}
@@ -6467,7 +6469,7 @@
 ,
 					"style" : "",
 					"text" : "autopattr",
-					"varname" : "u781005769"
+					"varname" : "u229027725"
 				}
 
 			}

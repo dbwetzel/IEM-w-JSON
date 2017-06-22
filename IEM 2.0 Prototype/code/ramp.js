@@ -47,7 +47,7 @@ function complex (){
 					{"target" : 50, "time" : 1000, "delay" : 1000}, //delay segment by 1000 ms
 					{"target" : 127, "time" : 1000, "delay" : 1000, "trigger" : {"match" : 127, "source" : "fs1"}}, 
 					{"target" : 30, "time" : 1000}, 
-					{"target" : 0, "time" : 4000, "exp" : 1.5, "delay" : 2000} 
+					{"target" : 0, "time" : 4000, "exp" : 1, "delay" : 2000} 
 				]
 			};
 
@@ -63,7 +63,8 @@ function ramp(str){
 	if(obj.hasOwnProperty("name")){
 		outlet(2, obj.name);
 	}
-
+	
+	var numSegments = 1;
 	
 	if (obj.hasOwnProperty("segments")){
 		// add these to the list in the coll file
@@ -71,6 +72,8 @@ function ramp(str){
 			for(var i = 0; i < obj.segments.length; i++){
 			//	post("segment: " + i);
 			//	post();
+				
+				numSegments++;
 					
 				var lineSegment = [i, "name", obj.name];
 				var segObj = obj.segments[i];
@@ -135,7 +138,44 @@ function ramp(str){
 		}
 	}
 	
-	var line = ["insert", 0, "name", obj.name, "delay", 0, "source", "none"];
+	var line = ["insert", 0, "name", obj.name];
+	
+	// add delay and trigger
+	if(obj.hasOwnProperty("delay")){
+		line.push("delay");
+		line.push(obj.delay);
+	} else {
+		line.push("delay");
+		line.push(0);			
+	}		
+	
+	if(obj.hasOwnProperty("trigger")){
+
+		var trigger = obj.trigger;
+		
+		if(trigger.hasOwnProperty("match")){
+			line.push("match");
+			line.push(trigger.match);
+		} else {
+			line.push("match");
+			line.push("none");
+		}
+
+		if(trigger.hasOwnProperty("source")){
+			line.push("source");
+			line.push(trigger.source);
+		} else {
+			line.push("source");
+			line.push("none");
+		}
+		
+	}
+	else {
+		line.push("match", "none", "source", "none");
+		// un-set "receive" object if no trigger
+		//also start the ramp with whatever delay time is set
+	}
+
 		
 	if(obj.hasOwnProperty("start")){
 		line.push("start");
@@ -162,57 +202,7 @@ function ramp(str){
 	}
 
 	outlet(1, line); // send the list out the middle to coll object
-
-	var del = [];
-		
-	if(obj.hasOwnProperty("delay")){
-		del.push("delay");
-		del.push(obj.delay);
-	} else {
-		del.push("delay");
-		del.push(0);			
-	}		
-	
-	outlet(0, del); // send the delay time to the trigger module
-	
-	if(obj.hasOwnProperty("trigger")){
-
-		var trigger = obj.trigger;
-		var trig = [];
-
-		if(trigger.hasOwnProperty("delay")){
-			trig.push("delay");
-			trig.push(trigger.delay);
-		} else {
-			trig.push("delay");
-			trig.push(0);			
-			}
-		
-		if(trigger.hasOwnProperty("match")){
-			trig.push("match");
-			trig.push(trigger.match);
-		} else {
-			trig.push("match");
-			trig.push("none");
-		}
-
-		if(trigger.hasOwnProperty("source")){
-			trig.push("source");
-			trig.push(trigger.source);
-		} else {
-			trig.push("source");
-			trig.push("none");
-		}
-	
-		outlet(0, trig);
-		
-	}
-	else {
-		var source = ["match", "none", "source", "none"];
-		outlet(0, source); // un-set "receive" object if no trigger
-		//also start the ramp with whatever delay time is set
-//		outlet(0, "bang"); // start the ramp immediately
-		}
+	outlet(0, numSegments); // send the coll length out the left
 
 	
 }
