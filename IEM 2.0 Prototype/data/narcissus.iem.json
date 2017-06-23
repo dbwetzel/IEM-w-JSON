@@ -282,9 +282,50 @@
 						"bypass" : "button2"
 					}
 				}
+			},
+			{
+				"name" : "faderTest",
+				"comments" : "simultaneously ramp all 32 faders from 0 - 100 over 2 seconds",
+				"parameters" : {
+					"fader" : {
+						"1" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"2" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"3" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"4" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"5" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"6" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"7" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"8" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"9" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"10" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"11" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"12" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"13" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"14" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"15" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"16" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"17" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"18" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"19" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"20" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"21" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"22" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"23" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"24" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"25" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"26" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"27" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"28" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"29" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"30" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"31" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
+						"32" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}}
+					
+					}
+				}	
 			}
 			]
-		}, 		
+		},		
 		{
 			"comments": "Event 2 - parameters for delayTest module",
 			"modules": [
@@ -327,7 +368,49 @@
 						"bypass" : "button4"
 					}
 				}
+			},
+			{
+				"name" : "faderTest",
+				"comments" : "simultaneously ramp all 32 faders from 0 - 100 over 2 seconds",
+				"parameters" : {
+					"fader" : {
+						"1" : {"ramp" : {"delay": 0, "start" : 0, "target" : 100, "time" : 2000}},
+						"2" : {"ramp" : {"delay": 100, "start" : 0, "target" : 100, "time" : 2000}},
+						"3" : {"ramp" : {"delay": 200, "start" : 0, "target" : 100, "time" : 2000}},
+						"4" : {"ramp" : {"delay": 300, "start" : 0, "target" : 100, "time" : 2000}},
+						"5" : {"ramp" : {"delay": 400, "start" : 0, "target" : 100, "time" : 2000}},
+						"6" : {"ramp" : {"delay": 500, "start" : 0, "target" : 100, "time" : 2000}},
+						"7" : {"ramp" : {"delay": 600, "start" : 0, "target" : 100, "time" : 2000}},
+						"8" : {"ramp" : {"delay": 700, "start" : 0, "target" : 100, "time" : 2000}},
+						"9" : {"ramp" : {"delay": 800, "start" : 0, "target" : 100, "time" : 2000}},
+						"10" : {"ramp" : {"delay": 900, "start" : 0, "target" : 100, "time" : 2000}},
+						"11" : {"ramp" : {"delay": 1000, "start" : 0, "target" : 100, "time" : 2000}},
+						"12" : {"ramp" : {"delay": 1100, "start" : 0, "target" : 100, "time" : 2000}},
+						"13" : {"ramp" : {"delay": 1200, "start" : 0, "target" : 100, "time" : 2000}},
+						"14" : {"ramp" : {"delay": 1300, "start" : 0, "target" : 100, "time" : 2000}},
+						"15" : {"ramp" : {"delay": 1400, "start" : 0, "target" : 100, "time" : 2000}},
+						"16" : {"ramp" : {"delay": 1500, "start" : 0, "target" : 100, "time" : 2000}},
+						"17" : {"ramp" : {"delay": 1600, "start" : 0, "target" : 100, "time" : 2000}},
+						"18" : {"ramp" : {"delay": 1700, "start" : 0, "target" : 100, "time" : 2000}},
+						"19" : {"ramp" : {"delay": 1800, "start" : 0, "target" : 100, "time" : 2000}},
+						"20" : {"ramp" : {"delay": 1900, "start" : 0, "target" : 100, "time" : 2000}},
+						"21" : {"ramp" : {"delay": 2000, "start" : 0, "target" : 100, "time" : 2000}},
+						"22" : {"ramp" : {"delay": 2100, "start" : 0, "target" : 100, "time" : 2000}},
+						"23" : {"ramp" : {"delay": 2200, "start" : 0, "target" : 100, "time" : 2000}},
+						"24" : {"ramp" : {"delay": 2300, "start" : 0, "target" : 100, "time" : 2000}},
+						"25" : {"ramp" : {"delay": 2400, "start" : 0, "target" : 100, "time" : 2000}},
+						"26" : {"ramp" : {"delay": 2500, "start" : 0, "target" : 100, "time" : 2000}},
+						"27" : {"ramp" : {"delay": 2600, "start" : 0, "target" : 100, "time" : 2000}},
+						"28" : {"ramp" : {"delay": 2700, "start" : 0, "target" : 100, "time" : 2000}},
+						"29" : {"ramp" : {"delay": 2800, "start" : 0, "target" : 100, "time" : 2000}},
+						"30" : {"ramp" : {"delay": 2900, "start" : 0, "target" : 100, "time" : 2000}},
+						"31" : {"ramp" : {"delay": 3000, "start" : 0, "target" : 100, "time" : 2000}},
+						"32" : {"ramp" : {"delay": 3100, "start" : 0, "target" : 100, "time" : 2000}}
+					
+					}
+				}	
 			}
+			
 			]
 		},
 		{
