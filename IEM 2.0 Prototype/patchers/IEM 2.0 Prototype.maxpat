@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 45.0, 79.0, 978.0, 783.0 ],
+		"rect" : [ 45.0, 79.0, 894.0, 783.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -53,6 +53,7 @@
 					"numoutlets" : 0,
 					"offset" : [ 0.0, 0.0 ],
 					"patching_rect" : [ 35.0, 725.0, 951.0, 90.0 ],
+					"varname" : "fader.iem",
 					"viewvisibility" : 1
 				}
 
@@ -1890,11 +1891,10 @@
 					"id" : "obj-177",
 					"lockeddragscroll" : 1,
 					"maxclass" : "bpatcher",
-					"name" : "newmod.2.2.maxpat",
-					"numinlets" : 3,
-					"numoutlets" : 1,
+					"name" : "newMod2.maxpat",
+					"numinlets" : 0,
+					"numoutlets" : 0,
 					"offset" : [ 1.0, 1.0 ],
-					"outlettype" : [ "" ],
 					"patching_rect" : [ 533.0, 56.0, 763.0, 470.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 416.0, 32.0, 966.0, 756.0 ],
@@ -1963,7 +1963,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 0.0, 26.0, 978.0, 757.0 ],
+						"rect" : [ 0.0, 26.0, 894.0, 757.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -2118,7 +2118,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 0.0, 26.0, 978.0, 757.0 ],
+						"rect" : [ 0.0, 26.0, 894.0, 757.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -3633,7 +3633,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 0.0, 26.0, 978.0, 757.0 ],
+						"rect" : [ 0.0, 26.0, 894.0, 757.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 12.0,
@@ -4387,7 +4387,7 @@
 							"modernui" : 1
 						}
 ,
-						"rect" : [ 0.0, 26.0, 978.0, 757.0 ],
+						"rect" : [ 0.0, 26.0, 894.0, 757.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -6049,15 +6049,9 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "newmod.2.2.maxpat",
+				"name" : "newMod2.maxpat",
 				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/patchers",
 				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "newmodule.js",
-				"bootpath" : "/Volumes/DB Wetzel/Users/davidwetzel/Documents/MaxMSP/IEM/Modules/abstractions & scripts",
-				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{

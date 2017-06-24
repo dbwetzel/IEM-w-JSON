@@ -4,25 +4,106 @@ outlets = 2;
 var modules = [];
 
 function bang(){
+	var newModObj = {
+		"newmod": [
+			{
+				"file": "fader.iem.maxpat",
+				"name": "faderTest",
+				"rax" : 1,
+				"comments": "test a mess of parameters"
+			}, {
+				"file": "delayJSON.iem.maxpat",
+				"name": "delayTest",
+				"rax" : 2,
+				"comments": "standardized delay processor"
+			}
+		]
+	};
+	
+	
+	//send a stringified object to the (experimental) newModJSON function 
+	var str = JSON.stringify(newModObj);
+	newModJSON(str);
 
-	// how do I sort a bang in the left from a bang in the right?
+}
+
+function newModJSON(str){
+	post(str);
+	post();
 	
-	// message to thispatcher:
-	// script newobject bpatcher @name %s @args %s @varname mod%ld @border 2 @patching_rect 0 %ld 950 %ld
+	var obj = JSON.parse(str);
 	
-	if(inlet==1){
-		outlet(1, "bang");
-		var deletedMod = patcher.getnamed("foobar");
-		patcher.remove(deletedMod);
-	} else {
+	var d = new Dict("IEM-modules"); // keep a list of current mods
 	
-		var patchName = "delayJSON.iem";
-		var modName = "noona";
-		
-		//create a bpatcher with the given filename and mod name
-//		var a = patcher.newdefault(0, 0,"bpatcher", patchName, "@args", modName, "@border", 2, "@varname", modName);
-		patcher.getnamed(modName).rect = [0, 18, 950, 180];
+	var files = [];
+	var mods = [];
+	var rax = [];
+
+//	extract the file/mod pairs from the obj into arrays
+	if(obj.hasOwnProperty("newmod")){ // top level key should be "newmod"
+		post("New Mods!\n");
+		if(Array.isArray(obj.newmod)){ //value should be an array of objects
+			post("Array of " + obj.newmod.length + " mods!\n");
+			for(var i = 0; i < obj.newmod.length; i++){
+				if(obj.newmod[i].hasOwnProperty("file")){
+					post("file: " + obj.newmod[i].file);
+					post();
+					files[i] = obj.newmod[i].file;
+				}
+				else{
+					files[i] = "";
+					error("missing file element in newmod array member " + i);
+				}
+				if(obj.newmod[i].hasOwnProperty("name")){
+					post("modname: " + obj.newmod[i].name);
+					post();
+					mods[i] = obj.newmod[i].name;
+				}
+				else{
+					mods[i] = "";
+					error("missing mod name element in newmod array member " + i);
+				}
+
+				if(obj.newmod[i].hasOwnProperty("rax")){
+					post("rack units: " + obj.newmod[i].rax);
+					post();
+					rax[i] = obj.newmod[i].rax;
+				}
+				else{
+					rax[i] = 1;
+				}
+				
+			}
+		}
 	}
+	
+	var offset = 0;
+	//make some bpatcher modules from the array of file/name pairs
+	for(var j = 0; j < mods.length; j++){
+		d.set(mods[j], files[j]);
+		var file = files[j];
+		var modName = mods[j];
+		if(patcher.getnamed(modName) == null){ // check to make sure it's not already there
+			post("mod: " + modName + "; file: " + file);
+			post();
+			var p = patcher.newdefault(0, 0, "bpatcher", file, "@args", modName, "@border", 2, "@varname", modName);		
+			
+			//rack positioning based on "rax" value
+			if(j > 0){
+				offset += j * 90 * rax[j - 1]; // offset is cumulative
+			} else offset = 0;
+			
+			var bottomRight = offset + 90 * rax[j];
+			p.rect = [0, offset, 950, bottomRight];
+			post("patching rectangle: " + 0 + ", " + offset + ", " + 950 +", " + bottomRight);
+			post();
+		}
+		else{
+			error("there's already a mod by that name!\n");
+		}
+	}
+
+
 }
 
 function newMod(){

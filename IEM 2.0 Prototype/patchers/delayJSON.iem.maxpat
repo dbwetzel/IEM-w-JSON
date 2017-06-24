@@ -6399,7 +6399,7 @@
 ,
 					"style" : "",
 					"text" : "pattrstorage",
-					"varname" : "u626021427"
+					"varname" : "u205000852"
 				}
 
 			}
@@ -6469,7 +6469,7 @@
 ,
 					"style" : "",
 					"text" : "autopattr",
-					"varname" : "u229027725"
+					"varname" : "u909001351"
 				}
 
 			}

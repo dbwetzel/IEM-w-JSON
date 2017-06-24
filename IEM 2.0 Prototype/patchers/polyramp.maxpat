@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 390.0, 79.0, 1016.0, 660.0 ],
+		"rect" : [ 96.0, 97.0, 628.0, 660.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -43,7 +43,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 160.0, 121.0, 52.0, 33.0 ],
+					"patching_rect" : [ 160.0, 121.0, 55.0, 33.0 ],
 					"style" : "",
 					"text" : "start the ramp:"
 				}
@@ -157,6 +157,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 694.0, 630.0, 37.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"style" : "",
 					"text" : "out 2"
 				}
@@ -182,9 +186,9 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 610.0, 187.0, 83.0, 22.0 ],
+					"patching_rect" : [ 610.0, 187.0, 87.0, 22.0 ],
 					"style" : "",
-					"text" : "sprintf %ld $1"
+					"text" : "sprintf %ld \\$1"
 				}
 
 			}
@@ -210,7 +214,7 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 217.5, 605.0, 47.0, 22.0 ],
 					"style" : "",
-					"text" : "9 $1"
+					"text" : "0 $1"
 				}
 
 			}
@@ -285,6 +289,10 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 962.0, 629.0, 37.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"style" : "",
 					"text" : "out 2"
 				}
@@ -437,7 +445,7 @@
 ,
 					"style" : "",
 					"text" : "pattr",
-					"varname" : "u594001381"
+					"varname" : "u187017903"
 				}
 
 			}
@@ -554,10 +562,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 217.5, 630.0, 37.0, 22.0 ],
-					"saved_object_attributes" : 					{
-						"attr_comment" : ""
-					}
-,
 					"style" : "",
 					"text" : "out 1"
 				}
@@ -571,6 +575,10 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 216.0, 18.0, 30.0, 22.0 ],
+					"saved_object_attributes" : 					{
+						"attr_comment" : ""
+					}
+,
 					"style" : "",
 					"text" : "in 1"
 				}

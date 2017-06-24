@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 200.0, 91.0, 943.0, 715.0 ],
+		"rect" : [ 45.0, 84.0, 943.0, 727.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -37,6 +37,19 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-22",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 1201.0, 139.0, 88.0, 22.0 ],
+					"style" : "",
+					"text" : "newModJSON"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-252",
 					"maxclass" : "newobj",
@@ -118,7 +131,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 961.333374, 301.333344, 153.0, 22.0 ],
-					"presentation_rect" : [ 958.666687, 301.333344, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "deleteMods foobar boobah"
 				}
@@ -145,7 +157,6 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 949.333313, 149.333344, 88.0, 22.0 ],
-					"presentation_rect" : [ 949.333313, 149.333344, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "deleteMods all"
 				}
@@ -343,6 +354,15 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-21", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-15", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-22", 0 ]
 				}
 
 			}
