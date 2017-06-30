@@ -27,6 +27,28 @@ function bang(){
 
 }
 
+function norax(){
+	var newModObj = {
+		"newmod": [
+			{
+				"file": "fader.iem.maxpat",
+				"name": "faderTest",
+				"comments": "test a mess of parameters"
+			}, {
+				"file": "delayJSON.iem.maxpat",
+				"name": "delayTest",
+				"comments": "standardized delay processor"
+			}
+		]
+	};
+	
+	
+	//send a stringified object to the (experimental) newModJSON function 
+	var str = JSON.stringify(newModObj);
+	newModJSON(str);
+
+}
+
 function newModJSON(str){
 	post(str);
 	post();
@@ -69,36 +91,69 @@ function newModJSON(str){
 					post();
 					rax[i] = obj.newmod[i].rax;
 				}
+				else if (obj.newmod[i].hasOwnProperty("size")){
+					//module has a custom UI size in px (width & height)
+					// rax property takes precedent
+				}
 				else{
-					rax[i] = 1;
+					// change this to create a module outside of the rack with no visible UI
+					rax[i] = 0;
 				}
 				
 			}
 		}
 	}
 	
-	var offset = 0;
+	var rackOffset = 0;
+	var offest = 0;
+	var rackPos = 0;
+	
 	//make some bpatcher modules from the array of file/name pairs
 	for(var j = 0; j < mods.length; j++){
-		d.set(mods[j], files[j]);
 		var file = files[j];
 		var modName = mods[j];
 		if(patcher.getnamed(modName) == null){ // check to make sure it's not already there
 			post("mod: " + modName + "; file: " + file);
 			post();
-			var p = patcher.newdefault(0, 0, "bpatcher", file, "@args", modName, "@border", 2, "@varname", modName);		
+			if(rax[j] > 0){
+				var p = patcher.newdefault(0, 0, "bpatcher", file, "@args", modName, "@border", 2, "@varname", modName);		
+				
+				//rack positioning based on "rax" value
+				if(j > 0){
+					offset += j * 90 * rax[j - 1]; // offset is cumulative
+				} else rackOffset = 0;
+				
+				var bottomRight = rackOffset + 90 * rax[j];
+				p.rect = [0, rackOffset, 950, bottomRight];
+				post("patching rectangle: " + 0 + ", " + rackOffset + ", " + 950 +", " + bottomRight);
+				post();
+
+				// add to the dictionary
+//				d.setparse(modName : {"file" : file, "rackPos" : rackPos});
+				rackPos ++;
+				
+			}
+			else { // rax property is 0: do not add it to the rack area as a bpatcher
+				if(j > 0){
+						offset += j * 25; // offset is cumulative
+					}
+				else offset = 500;
 			
-			//rack positioning based on "rax" value
-			if(j > 0){
-				offset += j * 90 * rax[j - 1]; // offset is cumulative
-			} else offset = 0;
-			
-			var bottomRight = offset + 90 * rax[j];
-			p.rect = [0, offset, 950, bottomRight];
-			post("patching rectangle: " + 0 + ", " + offset + ", " + 950 +", " + bottomRight);
-			post();
+				var p = patcher.newdefault(1000, offset, file, modName);
+				p.varname = modName;
+				
+	//			post("patching rectangle: " + 0 + ", " + offset + ", " + 50 +", " + bottomRight);
+	//			post();
+				// add to the dictionary
+				var JSONstring = '{"file" : "' + files[j] + '", "xPos" : 1000, "yPos" : ' + offset + '}';
+	//			post(JSONstring);
+				d.setparse(modName, JSONstring);
+				rackPos ++;
+
+			}
+
 		}
-		else{
+		else {
 			error("there's already a mod by that name!\n");
 		}
 	}
@@ -168,12 +223,22 @@ function deleteMods(){ // takes mod names and deletes corresponding named object
 		error("no keys in Dict IEM-modules\n");
 		return;
 	}
-	post("num args: " + a.length);
-	post();
+//	post("num args: " + a.length);
+//	post();
 	
 	switch(a[0]){
 		case "all": //delete all mods
-			killbpatchers(); // see below - using patcher.getlogical()
+			for(var i = 0; i < keys.length; i ++){
+				var key = keys[i];
+				post("deleting mod: " + key);
+				post();
+				var deleteMod = patcher.getnamed(key); // get a reference to the mod
+				if(deleteMod){ //check to make sure something got returned
+					patcher.remove(deleteMod);
+				}
+			}
+
+//			killbpatchers(); // see below - using patcher.getlogical()
 			d.clear();
 			break;
 			
@@ -182,7 +247,7 @@ function deleteMods(){ // takes mod names and deletes corresponding named object
 				post("deleting mod: " + a[i]);
 				post();
 				var deleteMod = patcher.getnamed(a[i]); // get a reference to the mod
-				if(deleteMod){ //check to amke sure something got returned
+				if(deleteMod){ //check to make sure something got returned
 					patcher.remove(deleteMod); // remove the mod from the patcher
 				}
 				if(d.contains(a[i])){ // if the arg exists in the Dict as a key
