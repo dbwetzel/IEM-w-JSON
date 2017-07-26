@@ -18,23 +18,23 @@
 		"newmod": [{
 			"file": "mixer.iem.maxpat",
 			"name": "Nmix",
+			"rax" : 2,
 			"comments": "Handles both audio routing and spatialization tasks"
 		}, {
 			"file": "delay.iem.maxpat",
 			"name": "Ndelay",
+			"rax" : 2,
 			"comments": "standardized delay processor"
 		}, {
 			"file": "VKDIG411.iem.maxpat",
 			"name": "VK411",
+			"rax" : 1,
 			"comments": "VK DIG411 interface translator for standardized delay"
 		}, {
 			"file": "MIDIcontroller.iem.maxpat",
 			"name": "Npedals",
+			"rax" : 2,
 			"comments": "MIDI foot pedal manager"
-		}, {
-			"file": "ramp.iem.maxpat",
-			"name": "Nvol",
-			"comments": "Automated volume control"
 		}],
 		"init": [{
 			"comments": "set inputs, outputs, and levels",

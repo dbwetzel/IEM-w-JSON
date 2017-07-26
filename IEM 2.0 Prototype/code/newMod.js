@@ -28,6 +28,7 @@ function bang(){
 }
 
 function norax(){
+// simulate an incoming JSON string that instantiates new modules without rack spaces
 	var newModObj = {
 		"newmod": [
 			{
@@ -105,7 +106,7 @@ function newModJSON(str){
 	}
 	
 	var rackOffset = 0;
-	var offest = 0;
+	var offset = 0;
 	var rackPos = 0;
 	
 	//make some bpatcher modules from the array of file/name pairs
@@ -120,7 +121,7 @@ function newModJSON(str){
 				
 				//rack positioning based on "rax" value
 				if(j > 0){
-					offset += j * 90 * rax[j - 1]; // offset is cumulative
+					rackOffset += j * 90 * rax[j - 1]; // offset is cumulative
 				} else rackOffset = 0;
 				
 				var bottomRight = rackOffset + 90 * rax[j];
@@ -129,7 +130,8 @@ function newModJSON(str){
 				post();
 
 				// add to the dictionary
-//				d.setparse(modName : {"file" : file, "rackPos" : rackPos});
+				var JSONstring = '{"file" : "' + files[j] + '", "rackPos" : ' + rackPos + '}';
+				d.setparse(modName, JSONstring);
 				rackPos ++;
 				
 			}
@@ -146,9 +148,8 @@ function newModJSON(str){
 	//			post();
 				// add to the dictionary
 				var JSONstring = '{"file" : "' + files[j] + '", "xPos" : 1000, "yPos" : ' + offset + '}';
-	//			post(JSONstring);
 				d.setparse(modName, JSONstring);
-				rackPos ++;
+//				rackPos ++;
 
 			}
 

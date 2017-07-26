@@ -7,12 +7,30 @@ function bang()
 	var seqs = [];
 	var x = new Dict("sequences"); // references the "sequences" dictionary
 	var keys = x.getkeys();
-//	post(keys);
-	for(var i = 0; i < keys.length; i++){
-		seqs[i] = new Dict(keys[i]); 
-		outlet(0, seqs[i].name);
-	}
 	
+//	if(keys.length == 1){ // only one named sequence in the script
+//		post("only one sequence: " + keys);
+// 		seqs[0] = new Dict(keys);
+//	}
+	post("Sequence Keys: " + keys);
+	post();
+	post("Sequence Keys Length: " + keys.length);
+	post();
+	post("Sequence Keys Type: " + typeof(keys));
+	post();
+	
+	if(typeof(keys) === 'string'){
+		post("Only one sequence in this script");
+		post();
+		seqs = new Dict(keys); 
+		outlet(0, seqs.name);
+	}
+	else {	
+		for(var i = 0; i < keys.length; i++){
+			seqs[i] = new Dict(keys[i]); 
+			outlet(0, seqs[i].name);
+		}
+	}	
 	
 }
 
