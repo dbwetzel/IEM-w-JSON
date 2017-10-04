@@ -158,8 +158,14 @@ function newModJSON(str){
 			error("there's already a mod by that name!\n");
 		}
 	}
+	
+	
+	// Initialize new modules
+//	initMods();
 
-
+	var tsk = new Task(initMods);
+	tsk.schedule(1000); // delay init by 1 sec
+	
 }
 
 function newMod(){
@@ -199,12 +205,50 @@ function newMod(){
 			var p = patcher.newdefault(0, 0, "bpatcher", file, "@args", modName, "@border", 2, "@varname", modName);		
 			var offset = j * 180;
 			p.rect = [0, offset, 950, offset + 180];
+			
 		}
 		else{
 			error("there's already a mod by that name!\n");
 		}
-	}
+	}	
 	 	
+}
+
+function initMods(){
+	
+	//get the setup dictionary
+	var s = new Dict("setup");
+	// convert to js object
+	var obj = JSON.parse(s.stringify());
+	
+	if(obj.hasOwnProperty("init")){
+		post("initializing modules from \"init\" object in setup dictionary\n");
+				
+		for(var i = 0; i < obj.init.length; i++){
+
+			// create an object for each module in the event
+			var modObj = obj.init[i]; 
+					
+			// check to make sure "name" property is present
+			if (modObj.hasOwnProperty("name")){
+				post(modObj.name); // mod name
+				post();					
+				// send a stringified event to a module's receive
+				var modEventString = JSON.stringify(modObj);
+				post("Send to: " + modObj.name);
+				post();
+				post("mod Event: " + modEventString);
+				post();
+
+				messnamed(modObj.name, modEventString); //send to a named Max receive object
+						
+			}
+			else {
+				error("no name field for this module!");
+				return;
+			}
+		}
+	}
 }
 
 function deleteMods(){ // takes mod names and deletes corresponding named objects

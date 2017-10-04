@@ -2,8 +2,8 @@
 	"info": {
 		"doctype": "IEM Event List",
 		"IEMversion": "2.0",
-		"author": "David B Wetzel",
-		"date": "2017",
+		"script-author": "David B Wetzel",
+		"creation-date": "2017",
 		"comments": "New realization in IEM 2.0 with JSON-based event list"
 	},
 	"meta": {
@@ -51,6 +51,19 @@
 				}
 			},
 			"parameters": {
+				"channels" : [
+					{},
+					{},
+					{},
+					{},
+					{
+						"trim" : 127,
+						"fader" : 100,
+						"pan": 64,
+						"mute" : 0
+					}, 
+					{},
+				]
 				"trim": {
 					"1": 0.8,
 					"2": 0.8,
@@ -201,7 +214,7 @@
 	},
 	"sequences": {
 		"testDelay": [
-		{
+		{ 
 			"comments": "Event 0 - parameters for delayTest module",
 			"modules": [
 			{

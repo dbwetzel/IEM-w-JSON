@@ -1,6 +1,7 @@
 inlets = 1;
 outlets = 3;
 
+//tet function
 function simple (){
 	
 	var obj = {
@@ -16,6 +17,7 @@ function simple (){
 	ramp(str);
 }
 
+//test function
 function simpleDelay (){
 	
 	var obj = {
@@ -32,6 +34,7 @@ function simpleDelay (){
 	ramp(str);
 }
 
+// test function
 function complex (){
 	
 	var obj = {
@@ -56,6 +59,8 @@ function complex (){
 	
 	ramp(str);
 }
+
+// This is the function that executes on input to the patcher
 
 function ramp(str){	
 	var obj = JSON.parse(str);
