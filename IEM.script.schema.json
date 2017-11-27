@@ -1,0 +1,83 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"title" : "IEM Event Script",
+	"description" : "define the essential structure of the Interactive Event Manager Script",
+	"type" : "object",
+	
+	"properties" : {
+	
+		"meta" : {
+			"description" : "catalog info regarding the composition/system",
+			"type" : "object",
+			"properties" : {
+				"composer" : {
+					"description" : "name(s) of the creator(s) of the work",
+					"type" : "array",
+					"items" : {
+						"type" : "string"
+					}
+				},	
+				"title" : {
+					"description" : "name of the piece",
+					"type" : "string"
+				},	
+				"date" : {
+					"description" : "year of composition",
+					"type" : "string"
+				},
+				"instrumentation" : {
+					"description" : "year of composition",
+					"type" : "array",
+					"items" : {
+						"descriptions" : "Each instrument should be a separate entry in the array for search purposes",
+						"type" : "string"
+					}
+				}	
+			}
+		},
+		"info" : {
+			"description" : "file information",
+			"type" : "object",
+			"properties" : {
+				"IEM-version" : {
+					"type" : "number"
+				},
+				"script-author" : {
+					"description" : "author of the IEM script",
+					"type" : "string"
+				},
+				"creation-date" : {
+					"type" : "string"
+				},
+				"last-modified" : {
+					"type" : "string"
+				},
+				"comments" : {
+					"description" : "explanatory info",
+					"type" : "string"
+				}
+			}
+		},
+		"setup" : {
+			"description" : "instantiate and initialize modules",
+			"type" : "object",
+			"properties" : {
+				"modules" : {
+					"description" : "list and instantiate objects",
+					"type" : "array"
+					},
+				"init" : {
+					"description" : "initialize module values",
+					"type" : "array"
+				}
+			}
+		},
+		"sequences" : {
+			"description" : "performance event lists",
+			"type" : "object",
+			"properties" : {}
+		}
+	
+	}
+	
+}

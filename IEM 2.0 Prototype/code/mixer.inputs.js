@@ -7,15 +7,90 @@ var height = 269;
 var numChannels = 0;
 var modName = "testMixer";
 
+function bang(){
+	//output a dummy input object
+	var obj = {
+		"input" : [
+			{
+			"parameters" : {
+				"trim" : 127,
+				"panA" : 64,
+				"faderA" : 100
+			},
+			"controls" : {
+				"trimcc" : "foobar"
+			},
+			"audio" : {}
+			},
+			{
+			"parameters" : {
+				"trim" : 127,
+				"panA" : 0,
+				"faderA" : 127
+			},
+			"controls" : {},
+			"audio" : {}
+			},
+			{
+			"parameters" : {
+				"trim" : 108,
+				"panA" : 80,
+				"faderA" : 111
+			},
+			"controls" : {},
+			"audio" : {}
+			},
+			{
+			"parameters" : {
+				"trim" : 127,
+				"panA" : 64,
+				"faderA" : 127
+			},
+			"controls" : {},
+			"audio" : {}
+			}
+		]
+	};
+	
+	outlet(0, JSON.stringify(obj.input));
+}
+
+
 function msg_int(x){
 	
 	
-	channels.push(x);
+	channels.push(x); //add to an array
 	
 	outlet(0, channels);
 	
 	}
 	
+function input(){
+	
+	var a = arrayfromargs(arguments);
+	
+	// first arg should be the mod Name
+	var modName = a[0];
+	
+	//second arg is stringified JSON
+	var obj = JSON.parse(a[1]);
+	
+	if(typeof obj == "object"){ // we are expecting an array of objects here
+		
+		for(var i = 0; i < obj.length; i++){
+			if(typeof obj[i] == "object"){
+				var inputObj = new Object();
+				inputObj = obj[i];
+				//add a name field
+				inputObj["name"] = modName + ".input[" + i + "]";
+				//send to a named Max receive object
+				messnamed(inputObj.name, JSON.stringify(inputObj)); 
+			}
+		}
+	}
+}
+	
+// add new input channels if necessary
 function numInputs(){
 	var a = arrayfromargs(arguments);
 	

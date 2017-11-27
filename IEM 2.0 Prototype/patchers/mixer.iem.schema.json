@@ -1,0 +1,59 @@
+{
+	"$schema": "http://json-schema.org/schema#",
+	"title" : "Mixer.iem",
+	"description" : "Mixer IEM Module",
+	"type" : "object",
+	
+	"properties" : {
+	
+		"parameters" : {
+			"description" : "catalog info regarding the composition/system",
+			"type" : "object"
+		},
+		"audio" : {
+			"description" : "audio I/O busses",
+			"type" : "object",
+			"properties" : {}
+		},
+		"control" : {
+			"description" : "Controller I/O busses",
+			"type" : "object",
+			"properties" : {}
+		},
+		"inputs" : {
+			"description" : "file information",
+			"type" : "object",
+			"properties" : {
+				"parameters" : {
+					"type" : "object"
+				},
+				"audio" : {
+					"description" : "send~/receive~ audio",
+					"type" : "object"
+				},
+				"control" : {
+					"description" : "send/receive data",
+					"type" : "object"
+				}
+			}
+		},
+		"outputs" : {
+			"description" : "sub-module for mixer output",
+			"type" : "object",
+			"properties" : {
+				"parameters" : {
+					"description" : "scriptable elements within output sub-module",
+					"type" : "object"
+					},
+				"audio" : {
+					"description" : "audio busses - send and receive audio signal",
+					"type" : "object"
+				},
+				"control" : {
+					"description" : "control busses - send and receive data",
+					"type" : "object"
+				}
+			}
+		}	
+	}	
+}

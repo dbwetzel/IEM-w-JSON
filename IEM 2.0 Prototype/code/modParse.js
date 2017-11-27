@@ -35,6 +35,7 @@ function parse(mod){
 	}
 	else {
 		error("No named module. Cannot parse module event");
+		post();
 		return;
 	}
 
@@ -50,25 +51,27 @@ function parse(mod){
 		for(var i = 0; i < keys.length; i ++){ // cycle through the top keys
 			var key = keys[i]
 			var val = params[key]; // get the value for each key
-			parseParam(key, val);
+			parseParam(key, val); // see below ...
 			
 		} // end loop through parameters
 		
 	} // end parameter parsing section
-	if(typeof obj.audio == 'object'){
+
+//	if(typeof obj.audio == 'object'){
+	if(obj.hasOwnProperty("audio")){ // if an "audio" object is part of the mod event
 		post("Audio Busses:\n ");
-		var params = obj.audio;
-		var keys = Object.keys(params);
+		var audioObj = obj.audio; // grab the object
+		var keys = Object.keys(audioObj);
 		for(var i = 0; i < keys.length; i ++){
 			var key = keys[i]
-			var val = params[key];
+			var val = audioObj[key];
 			if(typeof val == 'object'){
 				//if the value is an object
 				var valKeys = Object.keys(val);
 //				var valIndex;
 				for(var j = 0; j < valKeys.length; j++){
 					var valIndex = valKeys[j];
-					var valItems = params[key][valIndex];
+					var valItems = audioObj[key][valIndex];
 
 					if(valIndex in dictObj.audio[key]){
 						dictObj.audio[key][valIndex] = valItems;
@@ -101,13 +104,15 @@ function parse(mod){
 		}
 		
 	}
-	if(typeof obj.control == 'object'){
+	
+//	if(typeof obj.control == 'object'){
+	if(obj.hasOwnProperty("control")){ // look for a "control" section (i.e., control channels)
 		post("Control Channels:\n ");
-		var params = obj.control;
-		var keys = Object.keys(params);
+		var controlObj = obj.control;
+		var keys = Object.keys(controlObj);
 		for(var i = 0; i < keys.length; i ++){
 			var key = keys[i];
-			var val = params[key];
+			var val = controlObj[key];
 			if(typeof val == 'object'){
 				//if the value is an object
 				var valKeys = Object.keys(val);
@@ -115,7 +120,7 @@ function parse(mod){
 				for(var j = 0; j < valKeys.length; j++){
 					var valIndex = valKeys[j];
 					var subKey = key + "[" + valKeys[j] + "]";
-					var valItems = params[key][valIndex];
+					var valItems = controlObj[key][valIndex];
 					post(subKey + ": ");
 					post(valItems);
 					post();
@@ -213,7 +218,7 @@ function parseParam(key, val){
 		// 1. delx - delay execution by x msec
 		// 2. ramp - trigger a gradual ramp from one value to another or to a target value over x msec
 		// 3. envelope - trigger multi-segment ramp
-		// 4. sub parameter (dafault) - e.g. "pan" : {"1" : 0, "2" : 127, "3" : 0, "4" : 127} 
+		// 4. sub parameter (default) - e.g. "pan" : {"1" : 0, "2" : 127, "3" : 0, "4" : 127} 
 		// if the value of a sub parameter or delx is an object, parseParam is called recursively
 		
 		switch(valKeys[0]){
@@ -276,19 +281,17 @@ function parseParam(key, val){
 				post(key + ": envelope! -- stil working on this ...\n");
 				break;
 			default: 
-				// sub value e.g. "fader" : {"1" : 127, "2" : 0}
-				for(var j = 0; j < valKeys.length; j++){
-					var valIndex = valKeys[j];
-					var subKey = key + "[" + valKeys[j] + "]"; // e.g. "trim[1]"
-					var valItems = val[valIndex];
-					post(subKey + ": ");
-					post(valItems);
-					post();
+			// 	sub value e.g. "input" : [{"faderA" : 127, "panA" : 0}]
 					
-					parseParam(subKey, valItems); // try out some recursion ...
-					// send it back through for parsing as either value or ramp
-
+			// 	send a stringified object to the sub module. 
+			//	The sub module must have it's own parse.js
+				
+				if(this.patcher.getnamed(key)){
+					this.patcher.getnamed(key).message(JSON.stringify(val));
+			//		post(JSON.stringify(val));
+			//		post();
 				}
+				
 			} // end switch
 	} // end if(typeof val == 'object') 
 	else{

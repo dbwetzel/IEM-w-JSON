@@ -51,7 +51,10 @@
 				}
 			},
 			"parameters": {
-				"channels" : [
+				"comments" : "mixer inputs and outputs defined by the number of inputs and outputs",
+				"numInputs" : 8,
+				"numOutputs" : 8,
+				"input" : [
 					{},
 					{},
 					{},
@@ -63,20 +66,10 @@
 						"mute" : 0
 					}, 
 					{},
-				]
-				"trim": {
-					"1": 0.8,
-					"2": 0.8,
-					"3": 1.0
-				},
-				"fader": {
-					"1": 0.8,
-					"2": 0.8
-				},
-				"pan": {
-					"1": 0,
-					"2": 127
-				}
+					{},
+					{}
+				],
+				"output" : [{}, {}, {}, {}, {}, {}, {}, {}]
 			}
 		}, {
 			"comments": "set input to Mic 1; set external controls",
