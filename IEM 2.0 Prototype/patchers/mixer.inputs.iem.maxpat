@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 201.0, 136.0, 573.0, 616.0 ],
+		"rect" : [ 655.0, 178.0, 573.0, 616.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -37,21 +37,6 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
-				"box" : 				{
-					"fontsize" : 72.0,
-					"id" : "obj-3",
-					"linecount" : 2,
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 7.0, 9.0, 408.0, 167.0 ],
-					"style" : "",
-					"text" : "Input Section",
-					"textcolor" : [ 0.65098, 0.666667, 0.662745, 1.0 ]
-				}
-
-			}
-, 			{
 				"box" : 				{
 					"id" : "obj-4",
 					"maxclass" : "number",
@@ -271,6 +256,22 @@
 ,
 					"style" : "",
 					"text" : "js mixer.inputs.js"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"background" : 1,
+					"fontsize" : 72.0,
+					"id" : "obj-3",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 7.0, 9.0, 408.0, 167.0 ],
+					"style" : "",
+					"text" : "Input Section",
+					"textcolor" : [ 0.65098, 0.666667, 0.662745, 1.0 ]
 				}
 
 			}

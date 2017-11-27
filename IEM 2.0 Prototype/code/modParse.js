@@ -198,12 +198,9 @@ function text(){
 }
 
 // merge the incoming mod event with the module's dictionary
-function mergeDict(obj, modName){
+function mergeDict(obj, modName){	
 	
-	
-	var modDict = new Dict(modName); // create a new Dict object reference to the module's main dictionary
-	
-	
+	var modDict = new Dict(modName); // create a new Dict object reference to the module's main dictionary		
 	
 	}
 
@@ -288,16 +285,13 @@ function parseParam(key, val){
 				
 				if(this.patcher.getnamed(key)){
 					this.patcher.getnamed(key).message(JSON.stringify(val));
-			//		post(JSON.stringify(val));
-			//		post();
 				}
 				
 			} // end switch
 	} // end if(typeof val == 'object') 
 	else{
-		post(key + ": " + val);
-		post();
-				
+		
+		// if val is not an object, simply set the value of the key parameter				
 		if(this.patcher.getnamed(key)){
  			this.patcher.getnamed(key).message(val); // set an object in the patcher
 		}
