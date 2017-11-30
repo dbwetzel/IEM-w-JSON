@@ -5,6 +5,7 @@ var channels = [];
 var width = 97;
 var height = 269;
 var numChannels = 0;
+var numOuts = 0;
 var modName = "testMixer";
 
 function bang(){
@@ -91,7 +92,7 @@ function input(){
 }
 	
 // add new input channels if necessary
-function numInputs(){
+function newInputs(){
 	var a = arrayfromargs(arguments);
 	
 	if(a.length > 1){
@@ -112,6 +113,37 @@ function numInputs(){
 			}
 		}
 	}
+}
+
+function newOutputs(){
+	
+	post("output section coming soon!");
+	post();
+
+	var a = arrayfromargs(arguments);
+	
+	if(a.length > 1){
+		
+		modName = a[0]; // first arg should be the module name
+		var start = numOuts;
+		// if the number of channels is bigger than the current channel count, add more channels
+		if(a[1] > numOuts && typeof(a[1]) == "number"){
+			for(var i = start; i < a[1]; i++){
+				var outputName = modName + ".output[" + i + "]";
+/*				var p = patcher.newdefault(
+					0, 0, "bpatcher", "mixer.out.iem", 
+					"@args", outName, "@varname", outName,
+					"@border", 2, "@bgmode", 1);		
+				var offset = width * numChannels;
+				p.rect = [offset, 0, offset + width, height];
+*/
+				numOuts ++;
+				post(outputName);
+				post();
+			}
+		}
+	}	
+	
 }
 
 	

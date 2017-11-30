@@ -1976,7 +1976,7 @@
 				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
-					"hint" : "fadercc: <not assigned>",
+					"hint" : "faderA-cc: <not assigned>",
 					"id" : "obj-268",
 					"maxclass" : "comment",
 					"numinlets" : 1,
@@ -2367,7 +2367,7 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 0.509804, 0.596078, 0.588235, 1.0 ],
-					"hint" : "fader78cc[1]: <not assigned>",
+					"hint" : "faderD-cc[: <not assigned>",
 					"id" : "obj-1799",
 					"maxclass" : "dial",
 					"needlecolor" : [ 0.0, 0.078431, 0.321569, 1.0 ],
@@ -2733,7 +2733,7 @@
 				"box" : 				{
 					"bgcolor" : [ 0.509804, 0.596078, 0.588235, 1.0 ],
 					"floatoutput" : 1,
-					"hint" : "fader56cc: <not assigned>",
+					"hint" : "faderC-cc: <not assigned>",
 					"id" : "obj-1792",
 					"maxclass" : "dial",
 					"needlecolor" : [ 0.0, 0.078431, 0.321569, 1.0 ],
@@ -3420,7 +3420,7 @@
 				"box" : 				{
 					"bgcolor" : [ 0.509804, 0.596078, 0.588235, 1.0 ],
 					"floatoutput" : 1,
-					"hint" : "fader34cc[1]: <not assigned>",
+					"hint" : "faderB-cc: <not assigned>",
 					"id" : "obj-1779",
 					"maxclass" : "dial",
 					"needlecolor" : [ 0.0, 0.078431, 0.321569, 1.0 ],
@@ -9511,7 +9511,7 @@
 					"patching_rect" : [ 57.405262, 586.130005, 44.0, 29.0 ],
 					"style" : "",
 					"text" : "prepend set",
-					"varname" : "insertAsend~[1]"
+					"varname" : "insertAsend~"
 				}
 
 			}
@@ -11564,7 +11564,7 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 0.741176, 0.752941, 0.807843, 1.0 ],
-					"hint" : "pan78cc: <not assigned>",
+					"hint" : "panD-cc: <not assigned>",
 					"id" : "obj-818",
 					"knobcolor" : [ 0.2, 0.2, 0.2, 1.0 ],
 					"knobshape" : 5,
@@ -11584,7 +11584,7 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 0.741176, 0.752941, 0.807843, 1.0 ],
-					"hint" : "pan56cc: <not assigned>",
+					"hint" : "panC-cc: <not assigned>",
 					"id" : "obj-811",
 					"knobcolor" : [ 0.2, 0.2, 0.2, 1.0 ],
 					"knobshape" : 5,
@@ -11604,7 +11604,7 @@
 , 			{
 				"box" : 				{
 					"bgcolor" : [ 0.741176, 0.752941, 0.807843, 1.0 ],
-					"hint" : "pan34cc: <not assigned>",
+					"hint" : "panB-cc: <not assigned>",
 					"id" : "obj-800",
 					"knobcolor" : [ 0.2, 0.2, 0.2, 1.0 ],
 					"knobshape" : 5,
@@ -11625,7 +11625,7 @@
 				"box" : 				{
 					"bgcolor" : [ 0.741176, 0.752941, 0.807843, 1.0 ],
 					"elementcolor" : [ 0.786675, 0.801885, 0.845022, 1.0 ],
-					"hint" : "pancc: <not assigned>",
+					"hint" : "panA-cc: <not assigned>",
 					"id" : "obj-155",
 					"knobcolor" : [ 0.0, 0.0, 0.0, 1.0 ],
 					"knobshape" : 5,

@@ -16,8 +16,9 @@
 	},
 	"setup": {
 		"newmod": [{
-			"file": "mixer.iem.maxpat",
-			"name": "Nmix",
+			"file": "mixer_2.0.iem.maxpat",
+			"name": "mixer",
+			"arguments" : {"inputs": 4, "outputs" : 2},
 			"rax" : 2,
 			"comments": "Handles both audio routing and spatialization tasks"
 		}, {
@@ -52,8 +53,6 @@
 			},
 			"parameters": {
 				"comments" : "mixer inputs and outputs defined by the number of inputs and outputs",
-				"numInputs" : 8,
-				"numOutputs" : 8,
 				"input" : [
 					{},
 					{},
@@ -326,7 +325,13 @@
 						"31" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}},
 						"32" : {"ramp" : {"start" : 0, "target" : 100, "time" : 2000}}
 					
-					}
+					},
+					"faderz" : [
+						{},
+						{"value" : 127},
+						{"ramp" : {"start" : 0, "target" : 127, "time" : 2000}},
+						{"value" : 64},
+					]
 				}	
 			}
 			]
