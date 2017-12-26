@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 354.0, 128.0, 612.0, 596.0 ],
+		"rect" : [ 690.0, 152.0, 612.0, 596.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -99,9 +99,9 @@
 					"maxclass" : "newobj",
 					"numinlets" : 0,
 					"numoutlets" : 0,
-					"patching_rect" : [ 51.5, 457.0, 239.0, 22.0 ],
+					"patching_rect" : [ 51.5, 457.0, 215.0, 22.0 ],
 					"style" : "",
-					"text" : "mixer2.0.iem foobar @inputs 8 @outputs 4",
+					"text" : "mixer2.0.iem foobar inputs 8 outputs 4",
 					"varname" : "mixer2.0.iem"
 				}
 
@@ -121,6 +121,27 @@
 					"numoutlets" : 0,
 					"offset" : [ 0.0, 4.0 ],
 					"patching_rect" : [ 0.0, 0.0, 0.0, 0.0 ],
+					"viewvisibility" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"args" : [ "mixer", "inputs", 4, "outputs", 2 ],
+					"bgmode" : 0,
+					"border" : 0,
+					"clickthrough" : 0,
+					"enablehscroll" : 0,
+					"enablevscroll" : 0,
+					"id" : "obj-5",
+					"lockeddragscroll" : 0,
+					"maxclass" : "bpatcher",
+					"name" : "mixer2.0.iem.maxpat",
+					"numinlets" : 0,
+					"numoutlets" : 0,
+					"offset" : [ 0.0, 0.0 ],
+					"patching_rect" : [ 0.0, 0.0, 950.0, 290.0 ],
+					"varname" : "mixer",
 					"viewvisibility" : 1
 				}
 
@@ -156,17 +177,31 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "mixer.inputs.js",
-				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/code",
-				"patcherrelativepath" : "../code",
-				"type" : "TEXT",
+				"name" : "mixer.channel.iem.maxpat",
+				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/patchers",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "modParse.js",
-				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/code",
-				"patcherrelativepath" : "../code",
-				"type" : "TEXT",
+				"name" : "stereopanner.maxpat",
+				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/patchers",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "solos.maxpat",
+				"bootpath" : "/Volumes/DB Wetzel/Users/davidwetzel/Documents/MaxMSP/IEM/Modules/abstractions & scripts",
+				"patcherrelativepath" : "../../../../../../../../Volumes/DB Wetzel/Users/davidwetzel/Documents/MaxMSP/IEM/Modules/abstractions & scripts",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "set-cc.maxpat",
+				"bootpath" : "/Volumes/DB Wetzel/Users/davidwetzel/Documents/MaxMSP/IEM/Modules/abstractions & scripts",
+				"patcherrelativepath" : "../../../../../../../../Volumes/DB Wetzel/Users/davidwetzel/Documents/MaxMSP/IEM/Modules/abstractions & scripts",
+				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
@@ -192,6 +227,20 @@
 			}
 , 			{
 				"name" : "rampVoiceCounter.js",
+				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/code",
+				"patcherrelativepath" : "../code",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "modParse.js",
+				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/code",
+				"patcherrelativepath" : "../code",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "mixer.inputs.js",
 				"bootpath" : "~/Documents/Max 7/Projects/IEM_2.0/IEM 2.0 Prototype/code",
 				"patcherrelativepath" : "../code",
 				"type" : "TEXT",
