@@ -33,12 +33,13 @@ function parse(mod){
 		// convert the dictionary into JS object
 		var dictObj = JSON.parse(modDict.stringify());	
 	}
+/*
 	else {
 		error("No named module. Cannot parse module event");
 		post();
 		return;
 	}
-
+*/
 	
 		
 //	if(typeof obj.parameters == 'object'){ // if a "parameters" object is part of the mod event
@@ -93,13 +94,16 @@ function parse(mod){
 			else{
 				post(key + ": " + val);
 				post();
-				if(key in dictObj.audio){//screen out extraneous stuff from the mod dictionary
-					// this could include comments or other undefined keys
-					dictObj.audio[key] = val; // update the module instance dictionary
-				}
+
 				if(this.patcher.getnamed(key)){ // check to see if it exists first
 					this.patcher.getnamed(key).message(val); // set a Max object
 				} // ignore items in the mod event that do not have named Max objects
+
+		/*		if(key in dictObj.audio){//screen out extraneous stuff from the mod dictionary
+					// this could include comments or other undefined keys
+					dictObj.audio[key] = val; // update the module instance dictionary
+				}
+		*/
 			}
 		}
 		
@@ -224,6 +228,16 @@ function parseParam(key, val){
 				if(val.delx.hasOwnProperty("time") && val.delx.hasOwnProperty("value")){
 					var del = val.delx.time;
 					var tsk = new Task(parseParam, this, key, val.delx.value);
+					// "value" might contain an object. send it to parsePAram again to sort it out ...
+					tsk.schedule(del);
+				}
+				break;
+
+			case "delay": // use the Max JS Task object instead of setTimeout()
+
+				if(val.delay.hasOwnProperty("time") && val.delay.hasOwnProperty("value")){
+					var del = val.delay.time;
+					var tsk = new Task(parseParam, this, key, val.delay.value);
 					// "value" might contain an object. send it to parsePAram again to sort it out ...
 					tsk.schedule(del);
 				}
